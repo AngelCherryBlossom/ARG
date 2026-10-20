@@ -1,0 +1,802 @@
+
+/* 1. RESET E ESTRUTURA PRINCIPAL */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Trava a rolagem da tela */
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+}
+
+#desktop {
+    width: 100vw;
+    height: 100vh;
+    position: relative; /* Torna a mesa a referência para tudo que flutua */
+    background-image: url('/assets/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 2. BARRA DE TAREFAS (WINDOWS 97) */
+#barra-tarefas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    z-index: 9999; /* Garante que fique por cima de todas as janelas */
+}
+
+#btn-iniciar {
+    background-color: #c0c0c0;
+    font-weight: bold;
+    padding: 4px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    /* Efeito de botão 3D saltado clássico do Win97 */
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+}
+
+#relogio {
+    background-color: #c0c0c0;
+    padding: 3px 8px;
+    font-size: 12px;
+    /* Efeito de caixa afundada */
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* 3. GRADE DE ÍCONES */
+#grid-icones {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.icone {
+    width: 85px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.icone p {
+    font-size: 12px;
+    margin-top: 4px;
+    text-shadow: 1px 1px 2px #000, -1px -1px 2px #000; /* Sombra preta para ler no fundo claro */
+}
+
+.icone:hover {
+    background-color: rgba(0, 0, 128, 0.4);
+    border: 1px dotted #fff;
+}
+
+/* 4. NOTAS ADESIVAS (POST-ITS) */
+.nota-adesiva {
+    position: absolute;
+    width: 220px;
+    min-height: 180px;
+    background-color: #ffff88; /* Amarelo Post-it */
+    color: #222;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.35); /* Sombra de papel levantado */
+    font-family: 'Comic Sans MS', 'Courier New', sans-serif; /* Fonte estilo rascunho */
+    z-index: 10;
+    display: none;
+}
+
+.nota-cabecalho {
+    background-color: #ecec6e; /* Topo levemente mais escuro */
+    height: 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 4px;
+    cursor: move; /* Cursor indica que pode arrastar */
+    touch-action: none;
+}
+
+.btn-fechar-nota {
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+.btn-fechar-nota:hover {
+    color: #ff0000;
+}
+
+.nota-conteudo {
+    padding: 10px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.nota-conteudo h4 {
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 3px;
+}
+
+.nota-conteudo ul, .nota-conteudo li {
+    margin-left: 15px;
+}
+
+/* 5. POSICIONAMENTO INDIVIDUAL DAS NOTAS NA TELA */
+#nota-1 { top: 60px;  left: 140px; transform: rotate(-1deg); }
+#nota-2 { top: 100px; left: 400px; transform: rotate(2deg); }
+#nota-3 { top: 320px; left: 160px; transform: rotate(1deg); }
+#nota-4 { top: 80px;  left: 680px; transform: rotate(-2deg); }
+#nota-5 { top: 300px; left: 520px; transform: rotate(1.5deg); }
+
+/* --- JANELA DO NAVEGADOR MAXIMIZADA --- */
+.window-maximized {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* Altura total MENOS o tamanho da barra de tarefas (ajuste o 40px conforme a sua) */
+  height: calc(100vh - 40px); 
+  background-color: #c0c0c0;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.title-bar {
+  background: darkblue;
+  color: white;
+  padding: 3px 5px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Pixelated Font', sans-serif; /* Use a fonte retrô que estiver usando */
+}
+
+.address-bar {
+  padding: 5px;
+  border-bottom: 2px solid #808080;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.browser-content {
+  flex-grow: 1;
+  background: white;
+  border: 2px inset #fff;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* --- SISTEMA DE PÁGINAS --- */
+.page { display: none; padding: 20px; height: 100%; }
+.page.active { display: block; }
+.page.hidden { display: none; }
+
+/* --- GLOBE GLOBE LOGO --- */
+.page#page-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.globe-logo {
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 0px #ccc;
+}
+
+/* Cores inspiradas no Google antigo */
+.c-blue { color: #0000EE; }
+.c-red { color: #DD0000; }
+.c-yellow { color: #EEEE00; }
+.c-green { color: #008800; }
+
+/* Animações (O toque caótico dos anos 90) */
+.globe-logo span { display: inline-block; }
+
+.a-bounce { animation: bounce 1.5s infinite; }
+.a-spin { animation: spin 3s infinite linear; }
+.a-wave { animation: wave 2s infinite; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes spin {
+  0% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(-10deg); }
+}
+@keyframes wave {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* --- BARRA DE BUSCA CENTRAL --- */
+.search-area input {
+  width: 400px;
+  padding: 5px;
+  border: 2px inset #fff;
+  margin-bottom: 10px;
+}
+.search-buttons button {
+  padding: 5px 15px;
+  border: 2px outset #fff;
+  background: #c0c0c0;
+  cursor: pointer;
+}
+.search-buttons button:active { border: 2px inset #fff; }
+
+#navegador-window {
+  display: none; /* Garante que comece fechado */
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA DE HORÓSCOPO
+========================================= */
+
+#page-horoscope {
+  /* Força a barra de rolagem a aparecer se o texto for muito grande */
+  overflow-y: auto; 
+  background-color: #00001a; /* Fundo azul bem escuro / noite */
+  color: #e6e6fa; /* Texto cor de lavanda (Lavender) */
+  font-family: "Times New Roman", Times, serif; /* Fonte clássica de texto antigo */
+  padding: 0;
+}
+
+.horo-container {
+  padding: 20px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.horo-header {
+  text-align: center;
+  border-bottom: 2px dashed #9932cc; /* Linha roxa tracejada */
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+.horo-title {
+  color: #ff00ff; /* Magenta chocante */
+  font-size: 28px;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px #000000;
+}
+
+.horo-subtitle {
+  color: #ffd700; /* Dourado */
+  font-style: italic;
+  font-size: 16px;
+}
+
+.horo-content h2 {
+  color: #00ffff; /* Ciano */
+  margin-top: 25px;
+  border-left: 5px solid #00ffff;
+  padding-left: 10px;
+}
+
+.horo-content {
+  width: 900px;
+  align-items: center;
+}
+
+
+.horo-content p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-align: justify;
+  
+}
+
+.horo-content ul {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.horo-content li {
+  margin-bottom: 8px;
+}
+
+/* O Anúncio estilo anos 90 */
+.horo-ad {
+  background-color: #ffff00; /* Fundo amarelo gritante */
+  color: #ff0000; /* Texto vermelho */
+  border: 5px dashed #ff0000; /* Borda chamativa */
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif; /* Muda a fonte do anúncio para destacar */
+}
+
+.horo-ad h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #0000ff;
+}
+
+.horo-ad p {
+  color: #000;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+/* Efeito clássico de piscar para o email */
+.piscar {
+  animation: piscar-anim 1s infinite;
+  background-color: #000;
+  color: #00ff00; /* Texto verde neon no fundo preto */
+  padding: 5px;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+@keyframes piscar-anim {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* =========================================
+   PÁGINA DO MUNDO DOS PEIXES (ESTILOS LIMPOS)
+========================================= */
+
+/* =========================================
+   PÁGINA DO MUNDO DOS PEIXES (ESTILOS LIMPOS)
+========================================= */
+
+#page-fishes {
+  position: relative;
+  min-height: 100vh;
+  overflow-y: auto; 
+  overflow-x: hidden;
+  background-color: #002b47;
+  color: #e0f7fa;
+  font-family: Tahoma, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.page.hidden {
+  display: none !important;
+}
+
+/* =========================================
+   BOLHAS ANIMADAS (FIXAS E GRANDES)
+========================================= */
+.bolhas-container {
+  position: fixed; /* Mudar para fixed faz flutuar sobre a tela toda durante o scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bolha {
+  pointer-events: none;
+  z-index: 1;
+  position: absolute;
+  bottom: -150px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.2);
+  animation: subirBolha 10s infinite linear;
+}
+
+/* Bolhas significativamente maiores */
+.bolha:nth-child(1) { left: 5%;  width: 60px;  height: 60px;  animation-duration: 8s;  animation-delay: 0s; }
+.bolha:nth-child(2) { left: 22%; width: 100px; height: 100px; animation-duration: 13s; animation-delay: 2s; }
+.bolha:nth-child(3) { left: 40%; width: 50px;  height: 50px;  animation-duration: 7s;  animation-delay: 4s; }
+.bolha:nth-child(4) { left: 58%; width: 85px;  height: 85px;  animation-duration: 11s; animation-delay: 1s; }
+.bolha:nth-child(5) { left: 75%; width: 70px;  height: 70px;  animation-duration: 9s;  animation-delay: 3s; }
+.bolha:nth-child(6) { left: 90%; width: 120px; height: 120px; animation-duration: 15s; animation-delay: 5s; }
+
+@keyframes subirBolha {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.1;
+  }
+  30% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-115vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   POPUP AMONG US (SISTEMA DE FIOS EXPANDIDO)
+========================================= */
+#popup-ad-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-box {
+  background: #c0c0c0;
+  border: 3px outset #ffffff;
+  width: 560px; /* Largura expandida para afastar as colunas */
+  max-width: 95vw;
+  padding: 4px;
+  box-shadow: 10px 10px 0px #000000;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.popup-header {
+  background: #000080;
+  color: white;
+  padding: 4px 8px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.popup-body {
+  padding: 15px;
+  color: #000;
+  text-align: center;
+}
+
+.wires-container {
+  position: relative;
+  background: #111;
+  border: 2px inset #fff;
+  padding: 15px;
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  height: 280px;
+  overflow: hidden;
+  user-select: none;
+}
+
+#wires-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.wires-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 3;
+}
+
+.wire-btn {
+  width: 105px;
+  height: 32px;
+  border: none;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #000;
+  font-size: 11px;
+  text-shadow: 1px 1px 0 #000;
+  transition: transform 0.1s;
+}
+
+.wire-btn:hover {
+  transform: scale(1.05);
+}
+
+.wire-red    { background: #dc2626; }
+.wire-blue   { background: #2563eb; }
+.wire-yellow { background: #ca8a04; }
+.wire-green  { background: #16a34a; }
+.wire-pink   { background: #ec4899; }
+
+.wire-btn.selected {
+  outline: 3px solid #ffffff;
+}
+
+.wire-btn.connected {
+  opacity: 0.6;
+  cursor: default;
+  box-shadow: none;
+  outline: none;
+  transform: none !important;
+}
+
+.close-popup-btn {
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: not-allowed;
+  opacity: 0.5;
+  width: 100%;
+}
+
+.close-popup-btn.unlocked {
+  cursor: pointer;
+  opacity: 1;
+  background: #22c55e;
+  color: white;
+  border-color: #4ade80;
+}
+
+.fish-container {
+  position: relative;
+  z-index: 2;
+  padding: 30px 50px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.fish-header {
+  text-align: center;
+  border-bottom: 3px double #00e6e6;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.fish-title {
+  color: #00ffff;
+  font-size: 32px;
+  margin-bottom: 10px;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.8));
+}
+
+.fish-subtitle {
+  color: #80deea;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.fish-content h2 {
+  color: #ffffff;
+  margin-top: 40px;
+  background-color: #005580;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border-left: 5px solid #00ffff;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.4));
+  position: relative;
+  z-index: 5;
+}
+
+.fish-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+  position: relative;
+  z-index: 5;
+}
+
+.img-link {
+  display: block;
+  text-decoration: none;
+  margin: 35px 0;
+  position: relative;
+  z-index: 3;
+}
+
+.img-placeholder {
+  background: rgba(15, 23, 42, 0.85);
+  color: #c084fc;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #7e22ce;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.7));
+  transition: all 0.3s ease;
+}
+
+.fish-content img {
+  max-width: 100%;
+  max-height: 400px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ANÚNCIOS LATERAIS */
+.sidebar-ad-left,
+.sidebar-ad-right {
+  position: fixed;
+  top: 100px;
+  width: 130px;
+  background: #0f172a;
+  border: 2px ridge #00ffff;
+  padding: 10px 5px;
+  text-align: center;
+  z-index: 100;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.sidebar-ad-left { left: 15px; }
+.sidebar-ad-right { right: 15px; }
+
+.sidebar-ad h4 {
+  color: #ff007f;
+  font-size: 13px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.sidebar-ad p {
+  color: #e0f2fe;
+  font-size: 11px !important;
+  line-height: 1.3 !important;
+  margin-bottom: 10px !important;
+  text-align: center !important;
+}
+
+.sidebar-ad .ad-img-box {
+  width: 100%;
+  height: 90px;
+  background: #1e1b4b;
+  border: 1px dashed #00ffff;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a7f3d0;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .sidebar-ad-left,
+  .sidebar-ad-right { display: none; }
+}
+
+/* BANNERS INTERNOS */
+.fish-ad {
+  background: linear-gradient(180deg, #0f172a, #1e1b4b);
+  border: 2px dashed #00ffff;
+  padding: 20px;
+  margin: 45px 0;
+  text-align: center;
+  border-radius: 8px;
+  filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.5));
+  position: relative;
+  z-index: 5;
+}
+
+.fish-ad h3 {
+  color: #ff007f;
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.fish-ad p {
+  color: #e0f2fe;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-align: center !important;
+}
+
+.btn-ad {
+  background-color: #00ffff;
+  color: #000;
+  font-weight: bold;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  box-shadow: 3px 3px 0 #ff007f;
+}
+
+.btn-ad:hover {
+  background-color: #ff007f;
+  color: #fff;
+  box-shadow: 3px 3px 0 #00ffff;
+}
+
+/* BANNER SUPERIOR */
+.header-ad-banner {
+  background: #ffcc00;
+  color: #000;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 13px;
+  border-bottom: 3px solid #000;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.header-ad-banner a {
+  color: #d00000;
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+/* ANÚNCIO DE QUÍMICA DISFARÇADO (ARG) */
+.ad-quimica {
+  background: linear-gradient(135deg, #064e3b, #022c22) !important;
+  border: 2px solid #10b981 !important;
+}
+
+.ad-quimica h3 { color: #34d399 !important; }
+.ad-quimica p { color: #a7f3d0 !important; }
+
+.btn-quimica {
+  background-color: #10b981 !important;
+  color: #042f2e !important;
+  box-shadow: 3px 3px 0 #064e3b !important;
+}
+
+.btn-quimica:hover {
+  background-color: #34d399 !important;
+  color: #000 !important;
+}
+
+.ad-img-box img {
+  width: 90px;
+  height: 120px;
+}
+
+.ad-img-box {
+  width: 92px;
+  height: 122px;
+}

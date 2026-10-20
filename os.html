@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta tag salvadora de celulares -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS</title>
+    <!-- Linkando o novo arquivo de estilo -->
+    <link rel="stylesheet" href="/styles/os.css">
+</head>
+<body>
+
+    <div id="desktop">
+
+        <div id="barra-tarefas">
+            <button id="btn-iniciar">INICIAR</button>
+            <span id="relogio">04:05</span>
+        </div>
+
+        <div id="grid-icones">
+            <div id="icone-notas" class="icone">
+                📝
+                <p>Bloco de notas</p>
+            </div>
+
+            <div id="icone-navegador" class="icone">
+                🌐
+                <p>Internet Explorer</p>
+            </div>
+
+            <div id="icone-fotos" class="icone">
+                📂
+                <p>Galeria de Fotos</p>
+            </div>
+        </div>
+
+        <div class="nota-adesiva" id="nota-1">
+            <div class="nota-cabecalho">
+                <button class="btn-fechar-nota">X</button>
+            </div>
+            <div class="nota-conteudo">
+                <h4>Lista de Mercado</h4>
+                <ul>
+                    <li>Pão</li>
+                    <li>Leite</li>
+                    <li>Café</li>
+                    <li>Fita Isolante Preta</li>
+                    <li>Bateria 9V</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nota-adesiva" id="nota-2">
+            <div class="nota-cabecalho">
+                <button class="btn-fechar-nota">X</button>
+            </div>
+            <div class="nota-conteudo">
+                <h4> A Fazer </h4>
+                <ul>
+                    <li>Trocar água do aquário</li>
+                    <li>Exame de Sangue - Dr.Arnaldo (08:30)</li>
+                    <li>Biópsia de pulmão - 14/03</li>
+                    <li>Devolver livro da Íris</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nota-adesiva" id="nota-3">
+            <div class="nota-cabecalho">
+                <button class="btn-fechar-nota">X</button>
+            </div>
+            <div class="nota-conteudo">
+                <h4>Sites Favoritos</h4>
+                <p>www.horoscopo.com</p><br>
+                <p>www.peixes.com</p>
+            </div>
+        </div>
+
+        <div class="nota-adesiva" id="nota-4">
+            <div class="nota-cabecalho">
+                <button class="btn-fechar-nota">X</button>
+            </div>
+            <div class="nota-conteudo">
+                <h4>Lembre-se</h4>
+                <p>ácido + base = sal e água<br><br> o oxigênio <br>está no grupo 16</p>
+            </div>
+        </div>
+
+        <div class="nota-adesiva" id="nota-5">
+            <div class="nota-cabecalho">
+                <button class="btn-fechar-nota">X</button>
+            </div>
+            <div class="nota-conteudo">
+                <h4>Sei lá</h4>
+                <p>swrtygjhukhbgvfcxdtuy<br>ijmnvbcfrt</p>
+                <p>wwwwowwwulwwtiwwmo</p>
+                <p>powwwqwqwwwwnto</p>
+                <p>nwwwawwwowwwwvawwwle</p>
+            </div>
+        </div>
+    
+   <div id="navegador-window" class="window-maximized">
+  
+  <!-- Barra superior clássica do Windows 97 -->
+  <div class="title-bar">
+    <span class="title">Globe Globe - Navegador da Internet</span>
+    <button class="close-btn">X</button>
+  </div>
+
+  <!-- Barra de Endereço (opcional, mas dá um toque clássico) -->
+  <div class="address-bar">
+    <label>Endereço:</label>
+    <input type="text" id="url-input" placeholder="Digite www.horoscopo.com ou www.peixes.com">
+    <button onclick="navegarUrl()"> Ir </button>
+    <button class="voltar" id="btn-hub"> Voltar </button>
+  </div>
+
+  <!-- Área de Conteúdo -->
+  <div class="browser-content">
+    
+    <!-- PÁGINA 1: BUSCA (GLOBE GLOBE) -->
+    <div id="page-search" class="page active">
+      <div class="globe-logo">
+        <span class="c-blue a-bounce">G</span>
+        <span class="c-red a-spin">l</span>
+        <span class="c-yellow a-wave">o</span>
+        <span class="c-blue a-bounce">b</span>
+        <span class="c-green a-spin">e</span>
+        <span>&nbsp;</span>
+        <span class="c-blue a-wave">G</span>
+        <span class="c-red a-bounce">l</span>
+        <span class="c-yellow a-spin">o</span>
+        <span class="c-blue a-wave">b</span>
+        <span class="c-green a-bounce">e</span>
+      </div>
+      
+      <div class="search-area">
+        <input type="text" id="search-input" placeholder="O que você procura?">
+        <div class="search-buttons">
+          <button onclick="pesquisar()">Pesquisar no Globe Globe</button>
+          <button>Estou com sorte</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+   <!-- PÁGINA 2: HORÓSCOPO -->
+            <div id="page-horoscope" class="page hidden">
+              <div class="horo-container">
+                
+                <div class="horo-header">
+                  <h1 class="horo-title">🔮 O Grande Horóscopo de 1997 🔮</h1>
+                  <p class="horo-subtitle">Seu futuro digitalmente revelado pelas estrelas.</p>
+                </div>
+
+                <div class="horo-content">
+                  
+                  <h2>Capítulo I: A Convergência dos Símbolos e o Espelho de Vidro</h2>
+                  <p>
+                    Desde os primórdios da civilização, a humanidade busca na simbologia uma forma de decodificar o invisível. Das pinturas rupestres às margens do Nilo, a necessidade de projetar a alma em ícones permaneceu inalterada. Hoje, no limiar de um novo milênio, essa mesma busca migrou para as telas incandescentes dos monitores. O fluxo de elétrons que percorre os circuitos não é diferente do fluido vital que os antigos alquimistas tentavam canalizar em seus laboratórios herméticos.
+                  </p>
+                  <p>
+                    Quando você se conecta à rede, o som estridente do modem nada mais é do que um mantra moderno, um encantamento acústico projetado para alinhar as frequências do plano físico com a vasta noosfera digital. O <strong>aquário</strong> de vidro em que nos debruçamos todos os dias — o monitor — atua como um espelho de obsidiana. Nele, refletem-se nossas dúvidas mais profundas, nossos medos velados e nossa perpétua busca por orientação em um mundo cada vez mais veloz e impessoal.
+                  </p>
+                  <p>
+                    O Tarot surge nesse cenário não como uma superstição arcaica, mas como o sistema operacional definitivo da psique humana. Cada uma das 78 cartas funciona como uma linha de código primordial, um algoritmo simbólico capaz de processar os dilemas existenciais que nenhum computador moderno consegue calcular. Compreender o Tarot é aprender a ler a linguagem de programação do próprio destino.
+                  </p>
+                  <p>
+                    Muitos questionam se a máquina é capaz de abrigar o sagrado. A resposta reside na intenção. Onde houver foco, haverá manifestação. A energia espiritual não se limita ao papel impresso ou ao pergaminho antigo; ela flui com igual intensidade através de transistores e fios de cobre. O pulso elétrico é apenas a manifestação física do pensamento, e o pensamento é a matéria-prima de toda a magia conhecida.
+                  </p>
+                  <p>
+                    Ao navegar por estas linhas, você está iniciando uma sessão de alinhamento cármico. As palavras escolhidas aqui foram organizadas segundo frequências geométricas específicas. Preste atenção aos detalhes subtlemente destacados. Nada do que está escrito nesta página foi disposto ao acaso; cada termo em destaque carrega um peso vibracional projetado para ressoar com o seu subconsciente.
+                  </p>
+                  <p>
+                    A busca pela verdade exige paciência. Em uma época em que as pessoas exigem respostas instantâneas, o verdadeiro estudante do oculto sabe que o conhecimento autêntico exige tempo para ser assimilado. É necessário permitir que o significado de cada símbolo decante na mente, como a poeira que se assenta no fundo de um frasco cristalino após uma tempestade agitada.
+                  </p>
+                  <p>
+                    A chave para a compreensão não está na força bruta do intelecto, mas na capacidade de observar as conexões invisíveis. O universo opera através de sincronicidades — pequenos eventos cotidianos que parecem coincidências banais, mas que na verdade constituem o tecido vivo da realidade. Um número repetido na tela, um sobressalto sem explicação, ou uma gota de <strong>sangue</strong> que mancha o papel de um exame esquecido sobre a mesa.
+                  </p>
+                  <p>
+                    Aproxime-se, portanto, deste tratado com o respeito devido aos grandes grimórios do passado. O que se segue é o mapeamento detalhado da jornada da alma através dos grandes arquétipos da existência, traduzidos para a linguagem da mente contemporânea.
+                  </p>
+
+                  <h2>Capítulo II: A Saga dos Arcanos e o Código da Alma</h2>
+                  <p>
+                    No centro do sistema do Tarot reside o grupo conhecido como Arcanos Maiores. Estas vinte e duas cartas representam os grandes marcos da jornada humana, desde a inocência primordial até a integração total com o todo. A narrativa começa com O Louco, a carta de número zero. O Louco não é um tolo no sentido vulgar da palavra, mas sim a alma pura, desprovida de preconceitos ou amarras sociais, pronta para saltar no abismo da experiência terrena.
+                  </p>
+                  <p>
+                    À medida que avança, O Louco encontra O Mago, o mestre da manifestação que domina os quatro elementos fundamentais. O Mago ensina que a vontade dirigida é a ferramenta mais poderosa do universo. Ele segura o bastão da intenção e nos lembra que temos a capacidade de transformar a matéria bruta em realizações concretas, bastando para isso compreender as leis secretas da causa e do efeito que regem o cosmos.
+                  </p>
+                  <p>
+                    Em seguida, surge A Sacerdotisa, a guardiã do véu do templo. Ela se senta entre as colunas da luz e da obscuridade, sustentando o papiro do conhecimento oculto. A Sacerdotisa representa a intuição pura, aquela voz silenciosa que nos sopra verdades ao ouvido durante as horas calmas da madrugada. Ela nos avisa que nem tudo deve ser revelado imediatamente; certos mistérios exigem o silêncio da contemplação antes de virem à luz.
+                  </p>
+                  <p>
+                    O ciclo prossegue com A Imperatriz e O Imperador, a dualidade da criação e da estrutura. Enquanto A Imperatriz personifica a abundância da natureza, a fertilidade e a gestação de novas ideias, O Imperador traz a lei, a disciplina e a ordem necessária para construir impérios duradouros. Sem a visão generosa da Imperatriz, o mundo se torna árido; sem a firmeza do Imperador, o caos devora toda a criação.
+                  </p>
+                  <p>
+                    A jornada exige confrontos dolorosos. Mais adiante na caminhada, encontramos A Torre, a carta da ruptura inevitável. A Torre surge quando as estruturas que construímos sobre bases falsas entram em colapso. O raio da verdade atinge o topo da ilusão, destruindo os muros do ego para que a alma possa respirar novamente. Embora a queda seja aterrorizante, ela é o único meio de nos libertar das prisões morais que nós mesmos erguemos.
+                  </p>
+                  <p>
+                    Após a destruição da Torre, surge A Estrela, trazendo a promessa de renovação e esperança. Sob a luz suave dos astros, as feridas começam a cicatrizar. A Estrela nos ensina a confiar novamente no fluxo da vida, restaurando a fé e purificando a mente após a tempestade. Ela representa o momento em que limpamos o rastro de erros passados e nos preparamos para receber novas bênçãos com o coração purificado.
+                  </p>
+                  <p>
+                    Não podemos esquecer O Eremita, aquele que caminha sozinho na noite segurando uma lanterna acesa. Ele representa a busca interior necessária que todos devem empreender em algum momento. Para encontrar a verdadeira luz, é preciso afastar-se do ruído da multidão e consultar as páginas do próprio coração, como quem busca o título esquecido de um antigo <strong>livro</strong> na estante mais alta de uma biblioteca silenciosa.
+                  </p>
+                  <p>
+                    A jornada dos Arcanos é contínua e cíclica. Quando a última carta — O Mundo — é alcançada, a alma completa seu aprendizado nesta esfera. No entanto, a roda nunca para de girar. Toda conclusão carrega em si a semente de um novo começo, convidando O Louco a dar o primeiro passo rumo a uma nova odisseia de aprendizado e transformação espiritual.
+                  </p>
+
+                  <h2>Capítulo III: O Protocolo Divinatório e os Sinais do Cotidiano</h2>
+                  <p>
+                    Para aplicar esses ensinamentos em sua rotina, não são necessários rituais elaborados ou cálices de prata. O poder do Tarot reside na clareza da intenção e no respeito ao momento da consulta. Antes de embaralhar as cartas, é fundamental que o praticante busque um estado de quietude interior, limpando a mente das preocupações mundanas e das interferências do cotidiano.
+                  </p>
+                  <p>
+                    Formule sua pergunta com precisão. Questões vagas geram respostas nebulosas. Evite perguntar sobre assuntos fúteis ou tentar adivinhar o futuro de terceiros sem autorização; o Tarot é um instrumento de autoconhecimento, não uma ferramenta de bisbilhotice alheia. Concentre-se em sua própria jornada, em seus dilemas reais e nas decisões que estão ao seu alcance.
+                  </p>
+                  <p>
+                    O método clássico da tiragem de três cartas permanece como um dos mais eficientes. A primeira carta revela as influências do passado que moldaram a situação atual; a segunda expõe o estado presente com todas as suas forças e obstáculos invisíveis; a terceira aponta a tendência do futuro caso o caminho atual seja mantido. Essa disposição simples oferece um panorama claro e acionável para qualquer problema.
+                  </p>
+                  <p>
+                    Fique atento aos sinais que surgem ao seu redor durante a leitura. Se uma vela tremeluzir sem vento, se um ruído estranho soar na linha telefônica ou se o ponteiro do <strong>relógio</strong> parecer hesitar por uma fração de segundo, anote a ocorrência. Os planos sutis frequentemente utilizam essas pequenas anomalias físicas para confirmar uma intuição ou chamar a atenção para um detalhe negligenciado.
+                  </p>
+                  <p>
+                    Ao interpretar os símbolos, confie na primeira impressão que a imagem lhe causar. A mente analítica costuma tentar racionalizar e suavizar as mensagens desagradáveis, mas a intuição primária raramente falha. Se uma carta lhe causar desconforto, examine a fundo a razão desse sentimento. É precisamente onde sentimos resistência que reside a nossa maior oportunidade de crescimento espiritual.
+                  </p>
+                  <p>
+                    Mantenha um registro escrito de todas as suas consultas. Anotar as cartas sorteadas, a data da tiragem e os sentimentos vivenciados no momento permite acompanhar a evolução dos acontecimentos ao longo do tempo. Com os meses, você começará a perceber padrões recorrentes, revelando a mecânica oculta do seu próprio destino com uma clareza surpreendente.
+                  </p>
+
+                  <p>
+                    Compreenda que o Tarot não determina um destino inexorável. As cartas mostram o caminho de menor resistência baseado na energia do momento presente. Você sempre possui o livre-arbítrio para alterar sua rota. Se o mapa indicar um abismo à frente, use essa informação para mudar de direção, e não para se resignar com o impacto.
+                  </p>
+                  <p>
+                    Concluímos este tratado lembrando que a sabedoria mágica é um dever de responsabilidade. Use o conhecimento adquiridos aqui para iluminar o seu próprio caminho e ajudar aqueles que buscam orientação na escuridão. O universo retribui a cada ação na mesma medida; semeie clareza e colherá discernimento em todas as suas jornadas.
+                  </p>
+
+                </div>
+
+                <!-- O ANÚNCIO CLÁSSICO DE 1997 -->
+                <div class="horo-ad">
+                  <h3>🌟 ATENÇÃO: DESCUBRA SEU DESTINO HOJE! 🌟</h3>
+                  <p>Não deixe o seu futuro nas mãos da sorte! Adquira agora mesmo o seu <strong>Baralho de Tarot de marselha Consagrado</strong>.</p>
+                  <p>Acompanha manual de instruções em disquete e uma pedra de ametista para purificar a energia do seu monitor.</p>
+                  <br>
+                  <p>Preço Promocional: R$ 35,00 + Frete</p>
+                  <p>Interessados, enviar e-mail IMEDIATAMENTE para:</p>
+                  <h2 class="piscar">tarot_mistico1997@gmail.com</h2>
+                </div>
+
+              </div>
+            </div>
+
+    <div id="page-fishes" class="page">
+  <!-- ANÚNCIO LATERAL ESQUERDO (SKYSCRAPER LEFT) -->
+  <div class="sidebar-ad-left sidebar-ad">
+    <h4>🔥 OFERTA! 🔥</h4>
+    <div class="ad-img-box"> <img src="/assets/kp.jpg" alt=""> </div>
+    <p>Protetor de tela Aquário 3D em disquete!</p>
+    <a href="#" class="btn-ad" style="font-size: 10px; padding: 4px 8px">BAIXAR</a>
+  </div>
+
+  <!-- ANÚNCIO LATERAL DIREITO (SKYSCRAPER RIGHT) -->
+  <div class="sidebar-ad-right sidebar-ad">
+    <h4>⚠️ ATENÇÃO ⚠️</h4>
+    <div class="ad-img-box"><img src="/assets/kp.jpg" alt=""></div>
+    <p>Ganhe um Peixe Palhaço Grátis na compra de 2 rações!</p>
+    <a href="#" class="btn-ad" style="font-size: 10px; padding: 4px 8px">PEGAR</a>
+  </div>
+
+  <!-- BANNER DE CABEÇALHO (TOPO DO SITE) -->
+  <div class="header-ad-banner">
+    🚨 ALERTA DE PROMOÇÃO: COMPRE SEU KIT DE REAGENTES QUÍMICOS PARA AQUÁRIOS!
+    <a href="#" onclick="alert('Pista: O pH da água depende da reação entre ácido e base!')">CLIQUE AQUI</a>
+  </div>
+
+  <!-- PARTÍCULAS DE BOLHAS ANIMADAS NO FUNDO -->
+  <div class="bolhas-container">
+    <div class="bolha"></div>
+    <div class="bolha"></div>
+    <div class="bolha"></div>
+    <div class="bolha"></div>
+    <div class="bolha"></div>
+    <div class="bolha"></div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL DA PÁGINA -->
+  <div class="fish-container">
+    <div class="fish-header">
+      <h1 class="fish-title">🌊 O MUNDO DOS PEIXES 🌊</h1>
+      <p class="fish-subtitle">Enciclopédia Aquática Virtual - Edição Especial: A Árvore Genealógica dos Mares</p>
+    </div>
+                <div class="fish-content">
+                  
+                  <h2>Capítulo 1: O Berço Primitivo e a Dinastia dos Tubarões</h2>
+                  
+                  <p>Para compreender a vastidão da vida oceânica e as conexões invisíveis que unem as criaturas mais díspares, precisamos mergulhar nas profundezas do tempo. Muito antes de os primeiros anfíbios rastejarem para a terra firme, o oceano já era um laboratório borbulhante de experimentação biológica. A água, solvente universal da vida, abrigava o caldo primordial de onde todos nós viemos.</p>
+                  
+                  <p>Quando olhamos para a árvore evolutiva, os tubarões são como fantasmas vivos de um passado inimaginavelmente distante. Eles pertencem à classe dos Condrictes, os peixes cartilaginosos. Isso significa que, ao contrário da maioria dos vertebrados que você conhece, o esqueleto de um tubarão não é feito de ossos calcificados, mas sim de uma cartilagem flexível e resistente.</p>
+                  
+                  <p>Os tubarões surgiram há mais de 400 milhões de anos. Eles sobreviveram a nada menos que quatro grandes extinções em massa, incluindo aquela que dizimou os dinossauros. Enquanto o mundo na superfície fervia, congelava, rachava e se transformava, os tubarões continuavam patrulhando o azul profundo, aperfeiçoando seu design predatório.</p>
+                  
+                  <a href="index.html" class="img-link">
+                    <div class="img-placeholder"><img src="/assets/tutuba.png" alt="imagem de tubarão"></div>
+                  </a>
+
+                 <p>A pele de um tubarão não é coberta por escamas normais, mas por dentículos dérmicos. São pequenas estruturas semelhantes a dentes que reduzem o atrito com a água, tornando-os nadadores formidavelmente silenciosos e letais. Esse design hidrodinâmico é tão perfeito que engenheiros humanos o copiam para criar trajes de natação e cascos de submarinos.</p>
+                  <p>O sistema sensorial desses reis primitivos é outra obra-prima da natureza. Através das Ampolas de Lorenzini, pequenos poros em seus focinhos, eles são capazes de detectar os campos elétricos gerados pelas batidas do coração de uma presa escondida sob a areia do fundo do mar. Eles sentem a vida pulsar antes mesmo de vê-la.</p>
+                  <p>Como superpredadores, os tubarões exercem a função de "médicos" dos oceanos. Eles removem os indivíduos doentes e fracos das populações de peixes, garantindo que apenas os mais fortes se reproduzam. Sem a presença reguladora dos tubarões, os ecossistemas marinhos entrariam em colapso devido à superpopulação e doenças.</p>
+
+                  <!-- BANNER AD 1 (ANÚNCIO COMUM) -->
+                  <div class="fish-ad">
+                    <h3>🦈 PROTETOR DE TELA TUBARÃO 3D (1997) 🦈</h3>
+                    <p>Transforme seu monitor num aquário virtual de alta resolução! Baixe o arquivo ZIP agora mesmo (Apenas 1.4MB).</p>
+                    <a href="#" class="btn-ad">BAIXAR AGORA</a>
+                  </div>
+
+                  <p>Houve uma época em que tubarões do tamanho de ônibus escolares, como o temível Megalodon, dominavam as águas. Embora o Megalodon tenha se extinguido, seus parentes menores e mais adaptáveis, como o tubarão-branco e o tubarão-tigre, herdaram o trono, provando que o tamanho nem sempre é a chave para a sobrevivência em um mundo em mutação.</p>
+                  
+                  <p>Eles são os sentinelas do oceano, a raiz de uma linhagem que escolheu não se complicar com ossos pesados. No entanto, a evolução é uma força inquieta e implacável. Enquanto os tubarões dominavam as águas abertas, outro grupo de criaturas começava a experimentar uma nova tecnologia biológica.</p>
+                  
+                  <p>Esse novo grupo estava desenvolvendo uma novidade anatômica que mudaria para sempre a face do planeta Terra: o osso verdadeiro. Uma bifurcação silenciosa aconteceu sob as ondas, dividindo o reino marinho para sempre.</p>
+                  
+                  <p>Essa divergência evolutiva marca o momento em que a história dos tubarões se separa da história do resto dos vertebrados. Os peixes que optaram pelo caminho dos ossos calcificados dariam origem a uma diversidade alucinante de formas de vida, preparando o terreno para a próxima grande revolução aquática.</p>
+
+                  <h2>Capítulo 2: O Triunfo dos Ossos e a Saga do Peixe Dourado</h2>
+                  
+                  <p>Os Osteíctes, ou peixes ósseos, representam a esmagadora maioria das espécies que conhecemos hoje. Ao substituírem a cartilagem por esqueletos rígidos de cálcio, eles ganharam novas possibilidades estruturais. Ossos fortes permitiram o desenvolvimento de nadadeiras mais complexas e músculos especializados.</p>
+                  
+                  <p>Uma de suas inovações mais brilhantes foi a bexiga natatória. Esse órgão semelhante a um balão interno permite que os peixes ósseos flutuem em diferentes profundidades sem precisarem gastar energia nadando constantemente, uma vantagem enorme sobre os tubarões, que tendem a afundar se pararem de nadar.</p>
+                  
+                  <p>Dentro desse vasto grupo, uma família em particular chama a atenção: os Ciprinídeos. E é aqui que entra o humilde peixe dourado (Carassius auratus). Visto frequentemente como um enfeite de vidro, ele carrega em seu DNA uma história de sobrevivência extrema.</p>
+                  
+                  <a href="index.html" class="img-link">
+                    <div class="img-placeholder"><img src="/assets/xipee.webp" alt="peixe dourado"></div>
+                  </a>
+
+                  <p>Originários da Ásia Oriental, os ancestrais selvagens do peixe dourado eram carpas prateadas e opacas que habitavam lagos turvos. A evolução equipou essas criaturas com uma capacidade incrível de sobrevivência em águas gélidas e com baixo nível de oxigênio durante o inverno rigoroso.</p>
+                  <p>Quando os lagos congelavam, esses peixes conseguiam suspender seu metabolismo. Eles literalmente transformavam o ácido lático produzido pelo corpo em etanol para evitar o envenenamento celular, sobrevivendo embriagados no fundo do lago até o derretimento do gelo na primavera.</p>
+                  
+                  <!-- BANNER AD 2 (ANÚNCIO DE QUÍMICA DISFARÇADO COMO UM ANÚNCIO NORMAL) -->
+                  <div class="fish-ad">
+                    <h3>🧪 LABORATÓRIOS DR. ARNALDO - SOLUÇÕES QUÍMICAS 🧪</h3>
+                    <p>Precisa equilibrar o pH do seu aquário? Lembre-se: <strong>Ácido + Base = Sal e Água</strong>.</p>
+                    <p>Confira nossa tabela periódica interativa no catálogo digital!</p>
+                    <a href="#" class="btn-ad" onclick="alert('Pista gravada: Porque tem tanto sal no oceano?')">VER CATÁLOGO (PDF)</a>
+                  </div>
+
+                  <p>A transformação da carpa selvagem no peixe brilhante que conhecemos começou na China antiga. Mutações genéticas naturais produziram escamas amareladas e alaranjadas. Esses peixes raros foram isolados em lagoas ornamentais e poupados de predadores.</p>
+                  
+                  <p>Durante a Dinastia Song, a posse dessas criaturas tornou-se um símbolo de status e nobreza. A seleção artificial humana, cruzando os espécimes mais vibrantes ao longo de séculos, esculpiu a infinidade de formatos de caudas, olhos e cores que adornam nossos aquários modernos.</p>
+                  
+                  <p>O peixe dourado percebe o mundo de maneira fascinante. Além de enxergar mais cores do que nós (incluindo luz ultravioleta), eles possuem uma linha lateral ao longo do corpo, um órgão sensorial que detecta vibrações e mudanças de pressão na água, sentindo o movimento antes do impacto.</p>
+                  
+                  <p>Ao contrário do mito popular, a memória deles não dura apenas três segundos. Estudos comprovam que eles conseguem lembrar de rotinas, distinguir rostos humanos e até serem treinados para passar por pequenos obstáculos, provando que cérebros pequenos podem ser extremamente eficientes.</p>
+                  
+                  <p>O peixe dourado e o tubarão branco compartilham um ancestral comum muito antigo. O peixe dourado é a prova de que a evolução não segue apenas o caminho do "maior e mais forte", mas também o da adaptabilidade pacífica e da simbiose cultural com a humanidade.</p>
+
+                  <div class="fish-ad ad-quimica">
+                       <h3>🧪 LABORATÓRIOS DR. ARNALDO - SOLUÇÕES QUÍMICAS 🧪</h3>
+                        <p>Porque tem sal na água do mar? Lembre-se: <strong> é um produto vindo do ácido clorídrico com hidróxido de sódio</strong>.</p>
+                        <p>Confira nossa tabela periódica interativa no catálogo digital!</p>
+                        <a href="/peixes/quimica.html" class="btn-ad btn-quimica" onclick="alert('E se eles tem montes de areia, nós temos couro de sereia')">VER CATÁLOGO (PDF)</a>
+                   </div>
+                  
+                  <h2>Capítulo 3: O Retorno ao Lar e o Mistério das Baleias</h2>
+                  
+                  <p>Se os tubarões representam a água, e os peixes dourados o ápice ósseo, as baleias são a maior reviravolta da natureza. Para entender essa conexão, precisamos olhar para os peixes ósseos que, há milhões de anos, decidiram explorar além da superfície da água e invadir as margens lamacentas.</p>
+                  
+                  <p>Esses peixes primitivos desenvolveram pulmões rústicos e nadadeiras lobadas. Eles se arrastaram para a terra, deram origem aos anfíbios, depois aos répteis e, finalmente, aos mamíferos de sangue quente. Toda a fauna terrestre é herdeira desses corajosos desbravadores das poças.</p>
+                  
+                  <p>Contudo, há cerca de 50 milhões de anos, um pequeno mamífero terrestre parecido com um lobo, chamado Pakicetus, começou a caçar nas águas rasas. Ao longo de incontáveis gerações, os descendentes do Pakicetus foram se readaptando ao ambiente aquático. Eles estavam voltando para casa.</p>
+                  
+                  <a href="index.html" class="img-link">
+                    <div class="img-placeholder"><img src="/assets/amgdaseleia.png" alt="baleia"></div>
+                  </a>
+
+                  <p>Suas pernas traseiras encolheram, seus corpos se alongaram para imitar o formato hidrodinâmico dos peixes e eles perderam a pelagem. Esse foi o nascimento dos cetáceos: a grandiosa linhagem das baleias e dos graciosos golfinhos.</p>
+                  
+                  <p>Por isso, a baleia não é um peixe. Quando uma orca desliza ao lado de um tubarão, estamos vendo um reencontro evolutivo. O tubarão nunca saiu de casa; a baleia é a parente que foi tentar a vida na terra, evoluiu pulmões e decidiu voltar para o azul.</p>
+                  
+                  <p>A anatomia da baleia denuncia seu passado terrestre. Elas nadam movendo a cauda para cima e para baixo (como um mamífero correndo), enquanto peixes e tubarões movem a cauda lateralmente. Elas também amamentam seus filhotes e precisam subir à superfície para respirar o mesmo ar que nós.</p>
+
+                  <!-- BANNER AD 3 -->
+                  <div class="fish-ad">
+                    <h3>🐋 EXPEDIÇÃO DE OBSERVAÇÃO DE BALEIAS 🐋</h3>
+                    <p>Reserve sua viagem de barco para ver as Jubartes de perto! Vagas limitadas para a temporada de 1998.</p>
+                    <a href="#" class="btn-ad">RESERVAR TICKET</a>
+                  </div>
+
+                  <p>Dentro de algumas espécies gigantes, escondidos na massa muscular, ainda restam pequenos ossos residuais da pelve e pernas traseiras. São fósseis internos, ecos de um passado em que suas tataravós caminhavam sobre quatro patas pelas praias pré-históricas.</p>
+                  
+                  <p>Os Odontocetos, cetáceos com dentes como os golfinhos e cachalotes, desenvolveram a ecolocalização. Um sonar biológico tão avançado que permite que eles "vejam" o interior de outros animais através de ondas sonoras, navegando pela escuridão total do oceano profundo.</p>
+                  
+                  <p>As baleias de barbatana, por outro lado, tornaram-se os maiores animais que já existiram filtrando os menores seres do oceano. A baleia-azul pode ter um coração do tamanho de um pequeno carro, bombeando sangue quente em um ambiente gelado, desafiando todos os limites da biologia.</p>
+                  
+                  <p>Esses gigantes possuem cérebros formidáveis, culturas matrilineares complexas e canções que viajam por bacias oceânicas inteiras. Elas são a prova viva de que a vida sempre encontra formas poéticas e espetaculares de reocupar espaços deixados em branco.</p>
+
+                  <h2>Capítulo 4: A Teia da Vida Oceânica</h2>
+                  <p>A conexão entre o tubarão ancestral, o peixe dourado casteleiro e a baleia prodígio forma um triângulo que resume a saga da vida na Terra. Eles compartilham a mesma água, as mesmas correntes, mas cada um escreveu sua própria história de sobrevivência no grande livro do DNA.</p>
+                  
+                  <p>Oceano abaixo, a vida se organiza em camadas. Longe do sol, nas planícies abissais, fontes hidrotermais fervem com bactérias que não dependem da luz solar, mas de reações químicas violentas. Lá, criaturas bizarras prosperam no escuro absoluto, alheias ao mundo iluminado acima delas.</p>
+                  
+                  <p>Na zona crepuscular (mesopelágica), ocorre diariamente a maior migração em massa do planeta. Bilhões de pequenos peixes e lulas sobem à superfície à noite para se alimentar, retornando às profundezas antes do amanhecer para fugir dos predadores.</p>
+                  
+                  <a href="index.html" class="img-link">
+                    <div class="img-placeholder"><img src="/assets/coco.webp" alt="estrutura e corais"></div>
+                  </a>
+
+                  <p>Mais perto das costas, os recifes de coral agem como as metrópoles do oceano. Estruturas vivas construídas milímetro a milímetro por minúsculos pólipos formam cidades submersas que abrigam um quarto de todas as espécies marinhas, numa explosão de cores e competição.</p>
+                  
+                  <p>Mas tudo isso depende dos invisíveis guerreiros do mar: o fitoplâncton. Essas algas microscópicas geram mais da metade do oxigênio que respiramos. Cada segunda respiração que você toma, enquanto lê esta tela, é um presente direto das minúsculas plantas marinhas flutuando nas ondas.</p>
+                  
+                  <p>As correntes oceânicas atuam como o sistema circulatório do planeta. Elas distribuem calor dos trópicos para os polos e trazem nutrientes das profundezas, interligando ecossistemas que parecem isolados, mas que dependem intimamente uns dos outros para não colapsar.</p>
+                  
+                  <p>Infelizmente, essa rede ancestral enfrenta suas provações. Mudanças na temperatura e acidez da água ameaçam desmontar o trabalho de milhões de anos. Tubarões, peixes ósseos e baleias agora navegam em águas alteradas pelo mamífero terrestre mais inquieto de todos: nós mesmos.</p>
+                  
+                  <p>Ainda assim, a resiliência da vida é avassaladora. Assim como a carpa que sobrevive no gelo e a baleia que redescobriu o mar, a biologia se recicla e busca atalhos. O código fonte da natureza é cheio de <em>backups</em> impressionantes.</p>
+                  
+                  <p>Ao conectar os pontos desta imensa teia, percebemos que o isolamento é uma ilusão. Seja nas anotações soltas de um sistema operacional antigo, num <strong>relógio</strong> que avança sem parar, ou nas profundezas do Pacífico, as peças sempre se encaixam se olharmos com atenção.</p>
+                  
+                  <p>Você completou esta imersão. Quando fechar este navegador e olhar para as notas da sua tela, lembre-se: do tubarão à baleia, do fundo do mar à internet discada, tudo está rodando no mesmo infinito e misterioso sistema operacional da vida.</p>
+                </div>
+        <!-- POPUP MINIGAME AMONG US (SISTEMA DE FIOS) -->
+      <!-- POPUP MINIGAME AMONG US (SISTEMA DE FIOS DE 5 CORES) -->
+  <div id="popup-ad-overlay">
+    <div class="popup-box">
+      <div class="popup-header">
+        <span>⚠️ ERRO DO SISTEMA (AMONG US)</span>
+      </div>
+      <div class="popup-body">
+        <p><strong>REPARE O PAINEL DE FIOS PARA CONTINUAR!</strong></p>
+        <p style="font-size: 11px; margin-bottom: 10px;">Clique num fio da esquerda e conecte-o até a cor correspondente na direita:</p>
+        
+        <div class="wires-container" id="wires-container">
+          <!-- Canvas SVG transparente onde as linhas dos fios serão desenhadas -->
+          <svg id="wires-svg"></svg>
+          
+          <div class="wires-column left-column">
+            <button class="wire-btn wire-red" data-side="left" data-color="red">VERMELHO</button>
+            <button class="wire-btn wire-blue" data-side="left" data-color="blue">AZUL</button>
+            <button class="wire-btn wire-yellow" data-side="left" data-color="yellow">AMARELO</button>
+            <button class="wire-btn wire-green" data-side="left" data-color="green">VERDE</button>
+            <button class="wire-btn wire-pink" data-side="left" data-color="pink">ROSA</button>
+          </div>
+
+          <div class="wires-column right-column">
+            <!-- Cores embaralhadas para o minigame -->
+            <button class="wire-btn wire-blue" data-side="right" data-color="blue">AZUL</button>
+            <button class="wire-btn wire-green" data-side="right" data-color="green">VERDE</button>
+            <button class="wire-btn wire-red" data-side="right" data-color="red">VERMELHO</button>
+            <button class="wire-btn wire-pink" data-side="right" data-color="pink">ROSA</button>
+            <button class="wire-btn wire-yellow" data-side="right" data-color="yellow">AMARELO</button>
+          </div>
+        </div>
+
+        <button id="close-popup-btn" class="close-popup-btn" onclick="closePopup()" disabled>FECHAR ANÚNCIO (BLOQUEADO)</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  let maiorZIndex = 10;
+
+  // --- ELEMmentos do DOM ---
+  const iconeNotas = document.getElementById('icone-notas');
+  const todasNotas = document.querySelectorAll('.nota-adesiva');
+  const botoesFechar = document.querySelectorAll('.btn-fechar-nota');
+
+  const iconeNavegador = document.getElementById('icone-navegador');
+  const janelaNavegador = document.getElementById('navegador-window');
+  const btnFecharNavegador = janelaNavegador ? janelaNavegador.querySelector('.close-btn') : null;
+  const btnVoltar = document.getElementById('btn-hub');
+
+  // --- 1. REABRIR TODAS AS NOTAS ---
+  if (iconeNotas) {
+    iconeNotas.addEventListener('click', () => {
+      todasNotas.forEach(nota => {
+        nota.style.display = 'block';
+      });
+    });
+  }
+
+  // --- 2. FECHAR NOTA INDIVIDUAL ---
+  botoesFechar.forEach(botao => {
+    botao.addEventListener('pointerdown', (e) => {
+      e.stopPropagation();
+    });
+
+    botao.addEventListener('click', () => {
+      const notaPai = botao.closest('.nota-adesiva');
+      if (notaPai) notaPai.style.display = 'none';
+    });
+  });
+
+  // --- 3. FOCO E SISTEMA DE ARRASTE (DRAG & DROP) ---
+  todasNotas.forEach(nota => {
+    const cabecalho = nota.querySelector('.nota-cabecalho');
+    let estaArrastando = false;
+    let offsetX = 0, offsetY = 0;
+
+    nota.addEventListener('pointerdown', () => {
+      maiorZIndex++;
+      nota.style.zIndex = maiorZIndex;
+    });
+
+    if (cabecalho) {
+      cabecalho.addEventListener('pointerdown', (e) => {
+        estaArrastando = true;
+        offsetX = e.clientX - nota.offsetLeft;
+        offsetY = e.clientY - nota.offsetTop;
+        cabecalho.setPointerCapture(e.pointerId);
+      });
+
+      cabecalho.addEventListener('pointermove', (e) => {
+        if (!estaArrastando) return;
+        nota.style.left = `${e.clientX - offsetX}px`;
+        nota.style.top = `${e.clientY - offsetY}px`;
+      });
+
+      cabecalho.addEventListener('pointerup', (e) => {
+        estaArrastando = false;
+        cabecalho.releasePointerCapture(e.pointerId);
+      });
+    }
+  });
+
+  // --- ABRIR E FECHAR O NAVEGADOR ---
+  if (iconeNavegador && janelaNavegador) {
+    iconeNavegador.addEventListener('click', () => {
+      janelaNavegador.style.display = 'flex';
+      mostrarPagina('page-search');
+      const urlInput = document.getElementById('url-input');
+      if (urlInput) urlInput.value = 'http://www.globeglobe.com';
+    });
+  }
+
+  if (btnFecharNavegador) {
+    btnFecharNavegador.addEventListener('click', () => {
+      janelaNavegador.style.display = 'none';
+    });
+  }
+
+  // --- BOTÃO DE VOLTAR PARA O HUB ---
+  if (btnVoltar) {
+    btnVoltar.addEventListener('click', () => {
+      mostrarPagina('page-search');
+      const urlBar = document.getElementById('url-input');
+      if (urlBar) urlBar.value = 'http://www.globeglobe.com';
+    });
+  }
+
+  // --- PESQUISA / INPUTS COM ENTER ---
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') pesquisar();
+    });
+  }
+
+  const urlInput = document.getElementById('url-input');
+  if (urlInput) {
+    urlInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') navegarUrl();
+    });
+  }
+});
+
+// --- SISTEMA DE NAVEGAÇÃO ENTRE PÁGINAS ---
+function mostrarPagina(idPagina) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+    page.classList.add('hidden');
+    page.style.display = ''; // Limpa estilos inline que conflitem com a classe hidden
+  });
+
+  const paginaDesejada = document.getElementById(idPagina);
+  if (paginaDesejada) {
+    paginaDesejada.classList.remove('hidden');
+    paginaDesejada.classList.add('active');
+  }
+}
+
+function processarNavegacao(texto) {
+  const inputFormatado = texto.toLowerCase().trim();
+  const urlBar = document.getElementById('url-input');
+
+  if (inputFormatado === 'www.horoscopo.com' || inputFormatado === 'horoscopo') {
+    mostrarPagina('page-horoscope');
+    if (urlBar) urlBar.value = 'http://www.horoscopo.com';
+  } 
+  else if (inputFormatado === 'www.peixes.com' || inputFormatado === 'peixes') {
+    mostrarPagina('page-fishes');
+    if (urlBar) urlBar.value = 'http://www.peixes.com';
+  } 
+  else {
+    mostrarPagina('page-search');
+    if (urlBar) urlBar.value = 'http://www.globeglobe.com';
+    alert("O Globe Globe não encontrou resultados para: " + texto);
+  }
+}
+
+function navegarUrl() {
+  const urlInput = document.getElementById('url-input');
+  if (urlInput) processarNavegacao(urlInput.value);
+}
+
+function pesquisar() {
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) processarNavegacao(searchInput.value);
+}
+
+// --- MINIGAME AMONG US (SISTEMA DE FIOS COM LINHA QUE SEGUE O MOUSE) ---
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('wires-container');
+  const svg = document.getElementById('wires-svg');
+  
+  if (!container || !svg) return;
+
+  let selectedBtn = null;
+  let activeLine = null;
+  let connectedCount = 0;
+  const totalWires = 5;
+
+  // Tabela de cores em formato Hex para desenhar os fios no SVG
+  const colorHexMap = {
+    red: '#dc2626',
+    blue: '#2563eb',
+    yellow: '#ca8a04',
+    green: '#16a34a',
+    pink: '#ec4899'
+  };
+
+  // Clique em qualquer botão de fio
+  container.addEventListener('click', (e) => {
+    const btn = e.target.closest('.wire-btn');
+    
+    // Se não clicou em um botão válido ou se ele já foi conectado
+    if (!btn || btn.classList.contains('connected')) return;
+
+    const side = btn.getAttribute('data-side');
+    const color = btn.getAttribute('data-color');
+
+    // 1. Iniciar conexão (Apenas a partir dos botões da ESQUERDA)
+    if (!selectedBtn) {
+      if (side !== 'left') return; // Força iniciar pela esquerda
+
+      selectedBtn = btn;
+      btn.classList.add('selected');
+
+      // Obter o ponto de origem no centro da borda direita do botão
+      const containerRect = container.getBoundingClientRect();
+      const btnRect = btn.getBoundingClientRect();
+      const startX = btnRect.right - containerRect.left;
+      const startY = btnRect.top + (btnRect.height / 2) - containerRect.top;
+
+      // Criar a linha temporária no SVG
+      activeLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      activeLine.setAttribute('x1', startX);
+      activeLine.setAttribute('y1', startY);
+      activeLine.setAttribute('x2', startX);
+      activeLine.setAttribute('y2', startY);
+      activeLine.setAttribute('stroke', colorHexMap[color] || '#ffffff');
+      activeLine.setAttribute('stroke-width', '6');
+      activeLine.setAttribute('stroke-linecap', 'round');
+      svg.appendChild(activeLine);
+      return;
+    }
+
+    // 2. Tentar conectar num botão da DIREITA
+    if (selectedBtn) {
+      // Se clicou de novo na esquerda, altera ou cancela a seleção
+      if (side === 'left') {
+        if (selectedBtn === btn) {
+          // Deselecionar
+          cancelActiveLine();
+        } else {
+          // Trocar de botão na esquerda
+          cancelActiveLine();
+          btn.click();
+        }
+        return;
+      }
+
+      // Se clicou na DIREITA, verifica se as cores batem
+      if (side === 'right') {
+        const originColor = selectedBtn.getAttribute('data-color');
+
+        if (originColor === color) {
+          // ACERTOU A COR: Fixar a linha no centro da borda esquerda do botão de destino
+          const containerRect = container.getBoundingClientRect();
+          const btnRect = btn.getBoundingClientRect();
+          const endX = btnRect.left - containerRect.left;
+          const endY = btnRect.top + (btnRect.height / 2) - containerRect.top;
+
+          activeLine.setAttribute('x2', endX);
+          activeLine.setAttribute('y2', endY);
+
+          // Marcar botões como conectados
+          selectedBtn.classList.remove('selected');
+          selectedBtn.classList.add('connected');
+          btn.classList.add('connected');
+
+          selectedBtn = null;
+          activeLine = null;
+          connectedCount++;
+
+          // Se conectou os 5 pares, libera o botão de fechar
+          if (connectedCount === totalWires) {
+            const closeBtn = document.getElementById('close-popup-btn');
+            if (closeBtn) {
+              closeBtn.classList.add('unlocked');
+              closeBtn.disabled = false;
+              closeBtn.innerText = 'FECHAR ANÚNCIO (DESBLOQUEADO)';
+            }
+          }
+        } else {
+          // ERROU A COR: Cancela a linha atual
+          cancelActiveLine();
+        }
+      }
+    }
+  });
+
+  // Atualiza a posição da linha temporária para seguir o cursor
+  container.addEventListener('mousemove', (e) => {
+    if (!activeLine) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const mouseX = e.clientX - containerRect.left;
+    const mouseY = e.clientY - containerRect.top;
+
+    activeLine.setAttribute('x2', mouseX);
+    activeLine.setAttribute('y2', mouseY);
+  });
+
+  function cancelActiveLine() {
+    if (activeLine) {
+      svg.removeChild(activeLine);
+      activeLine = null;
+    }
+    if (selectedBtn) {
+      selectedBtn.classList.remove('selected');
+      selectedBtn = null;
+    }
+  }
+});
+
+function closePopup() {
+  const overlay = document.getElementById('popup-ad-overlay');
+  if (overlay) {
+    overlay.style.display = 'none';
+  }
+}                                      
+</script>
+</body>
+</html>

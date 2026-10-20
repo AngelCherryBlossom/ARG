@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/forum.css">
+    <title>Forum</title>
+</head>
+<body>
+    
+   <!-- HEADER -->
+  <header>
+    <div class="logo" onclick="verFeed()">
+      <span>🐟</span> Fishit <span style="font-size:0.8rem; color:var(--text-muted)">/r/GolfinhosAdestrados</span>
+    </div>
+    <input type="text" class="search-bar" placeholder="Buscar no Fishit...">
+    <div class="user-nav">
+      <button class="nav-btn active" id="btn-feed" onclick="verFeed()">Comunidade</button>
+      <button class="nav-btn" id="btn-rascunhos" onclick="verRascunhos()">Meu Perfil (Rascunhos)</button>
+      <div class="avatar" onclick="verRascunhos()">U</div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- FEED DE POSTS -->
+    <main class="feed" id="feed-container">
+      
+      <!-- POST 1 -->
+      <article class="post-card">
+        <div class="post-header-wrapper">
+          <div class="votes">
+            <button class="vote-btn">▲</button>
+            <span>1.4k</span>
+            <button class="vote-btn">▼</button>
+          </div>
+          <div class="post-content">
+            <div class="post-meta">Postado por u/TreinadorDeTanque há 4 horas</div>
+            <h2 class="post-title">TUTORIAL DEFINITIVO: Como ensinar seu golfinho a equilibrar 3 clavas sem quebrar o vidro do aquário</h2>
+            <p class="post-body">Galera, depois de meses de tentativa e erro (e 3 vidros trincados), descobri que o segredo é a sardinha de recompensa no momento exato da segunda volta no ar. Não usem bolas de borracha pesadas!</p>
+            <div class="post-footer">
+              <span class="btn-comments" onclick="toggleComentarios('c1')">💬 15 Comentários (Clique para expandir)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMENTÁRIOS POST 1 -->
+        <div class="comments-section" id="c1">
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/DoutorCetaceo</span><span>▲ 89</span></div>
+            <div class="comment-body">Você calculou o coeficiente de arrasto hidrodinâmico das clavas? Se a velocidade angular passar de 3.14 rad/s no momento do salto, a flutuabilidade nula se perde. Eu fiz uma equação com 12 variáveis no meu blog pra provar isso.</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/TreinadorDeTanque (Autor)</span><span>▲ 42</span></div>
+            <div class="comment-body">Irmão, eu só dei uma sardinha pro Flipper e ele jogou o pau pro alto. Não viaja nas equações kkkkk</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/PirataDoAquario</span><span>▲ 156</span></div>
+            <div class="comment-body">Alguém aqui já tentou trocar as clavas por **argolas de fogo**? Estava pensando em montar um espetáculo noturno estilo circo Romano debaixo d'água.</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/SabioDasAbissais</span><span>▲ 210</span></div>
+            <div class="comment-body">Cara... tu quer colocar fogo DENTRO DA ÁGUA? Teve um doido semana passada que tentou isso. O fogo apagou na hora, o cara passou vergonha e dizem que ele até deletou o rascunho do post de tão burro que se sentiu KKKKKKKK.</div>
+          </div>
+          <div class="comment comment-nested-2">
+            <div class="comment-meta"><span class="comment-author">u/BiologoDoAcaso</span><span>▲ 45</span></div>
+            <div class="comment-body">Eu vi esse post! O cara escreveu literalmente: "A água apagou o fogo. Sou burro. Deixa baixo." Perdi tudo KKKKKKKKKKK.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/CriptoGolfinho</span><span>▲ 3</span></div>
+            <div class="comment-body">Se você somar o número de caracteres deste comentário e dividir pela latitude da Fossa das Marianas, dá a coordenada exata de onde vendem clavas em promoção. Fiquem atentos.</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/TeoricoDeBoia</span><span>▲ 1</span></div>
+            <div class="comment-body">Mano, eu fiquei 2 horas fazendo essa conta e deu a localização de uma farmácia em Bangu. Você tá me zoando?</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/PaiDeFlipper</span><span>▲ 28</span></div>
+            <div class="comment-body">Minha fêmea de golfinho só aceita clava se for pintada com tinta néon atóxica. Elas são muito vaidosas nessa espécie.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/SardinhaDefensora</span><span>▲ -14</span></div>
+            <div class="comment-body">Usar sardinha como moeda de troca é especulação imobiliária marinha! Vocês deveriam recompensá-los com carinho e elogios verbais em alta frequência!</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/OceanoRealista</span><span>▲ 67</span></div>
+            <div class="comment-body">Vai lá, tenta dar um "parabéns" pro golfinho depois dele pular 4 metros e vê se ele não te da uma nadada na cara por falta de peixe.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/OperadorDeSonar</span><span>▲ 19</span></div>
+            <div class="comment-body">O som da clava caindo na água gera um eco de 1200Hz. Se você desacelerar esse áudio em 4x parece uma música do Bob Marley.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/EngenheiroSubmerso</span><span>▲ 5</span></div>
+            <div class="comment-body">A verdadeira questão é: o vidro trincou na vertical ou na horizontal? Se foi na vertical, a pressão do domo tá comprometida!</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/VeterinarioSemAcreditação</span><span>▲ 11</span></div>
+            <div class="comment-body">Dica extra: NUNCA usem clavas de metal. O sonar deles reflete no metal e eles ficam tontos parecendo que tomaram duas catuabas.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/OcultistaAquatico</span><span>▲ 2</span></div>
+            <div class="comment-body">Três clavas girando no ar formam o triângulo sagrado das Bermudas. Isso não é malabarismo, é um ritual primitivo cetáceo.</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/TreinadorDeTanque (Autor)</span><span>▲ 88</span></div>
+            <div class="comment-body">Mano, sai do meu post kkkkkkkkk.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST 2 -->
+      <article class="post-card">
+        <div class="post-header-wrapper">
+          <div class="votes">
+            <button class="vote-btn">▲</button>
+            <span>892</span>
+            <button class="vote-btn">▼</button>
+          </div>
+          <div class="post-content">
+            <div class="post-meta">Postado por u/FlipperCirco há 9 horas</div>
+            <h2 class="post-title">Socorro! O meu golfinho aprendeu o malabarismo, mas agora só aceita se apresentar usando peruca de palhaço?</h2>
+            <p class="post-body">Eu tentei tirar a peruca d'água e ele simplesmente cruzou as nadadeiras e se recusou a dar um salto. Alguém sabe onde compra peruca à prova d'água em lote?</p>
+            <div class="post-footer">
+              <span class="btn-comments" onclick="toggleComentarios('c2')">💬 13 Comentários (Clique para expandir)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMENTÁRIOS POST 2 -->
+        <div class="comments-section" id="c2">
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/SerafimDoMar</span><span>▲ 33</span></div>
+            <div class="comment-body">Se a peruca for vermelha e amarela, tente trocar o tom para azul-marinho. Golfinhos são extremamente exigentes com a paleta de cores da teoria das cores oceânicas.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/Anonimo404</span><span>▲ 12</span></div>
+            <div class="comment-body">A primeira letra de cada frase desse post forma a palavra "SOCORRO". Será que é uma mensagem oculta de um adestrador mantido em cativeiro?</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/FlipperCirco (Autor)</span><span>▲ 55</span></div>
+            <div class="comment-body">Não viaja, cara. Eu só tô desesperado porque a apresentação é sábado e a peruca tá mofando.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/EstilistaDeLaguna</span><span>▲ 104</span></div>
+            <div class="comment-body">Use silicone industrial nas fibras do cabelo sintético. Faço isso pras perucas dos meus leões marinhos há anos e nunca soltou fiapo no filtro do tanque.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/CosplaySubaquatico</span><span>▲ 41</span></div>
+            <div class="comment-body">Já tentou colocar uma peruca do Naruto? O meu golfinho faz o rasengan com a bola de praia se tiver com a faixa da Vila da Folha.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/GamerDoAbismo</span><span>▲ 8</span></div>
+            <div class="comment-body">Coloca iluminação RGB na peruca do bicho. Dá mais FPS no salto.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/PsicologoDeBaleia</span><span>▲ 76</span></div>
+            <div class="comment-body">Isso é claramente Síndrome do Palhaço Triste Cetáceo. Ele usa a peruca para esconder o vazio existencial de nadar em círculos. Recomendo 2h diárias de música clássica no alto-falante subaquático.</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/FlipperCirco (Autor)</span><span>▲ 19</span></div>
+            <div class="comment-body">Eu coloquei Mozart ontem e ele jogou água no meu teclado...</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/KpopMarinho</span><span>▲ 14</span></div>
+            <div class="comment-body">Se você colocar BTS pra tocar no tanque ele aceita usar até chapéu de caubói. Fica a dica.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/DetetiveDeTeclas</span><span>▲ 3</span></div>
+            <div class="comment-body">Gente, se você ler a terceira palavra de cada linha dá a receita de um bolo de cenoura. Testem aí!</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/CuriosoAquatico</span><span>▲ 0</span></div>
+            <div class="comment-body">Eu fiz aqui e deu "meu malabarismo peruca salta lote". Que bolo é esse mano?</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/DonoDeCirco</span><span>▲ 230</span></div>
+            <div class="comment-body">Te compro esse golfinho por R$ 15.000 e duas lanchas velhas. Manda DM urgente!</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/ZeroPaciencia</span><span>▲ 15</span></div>
+            <div class="comment-body">É por isso que o r/GolfinhosAdestrados tá caindo. Antigamente a gente discutia rotas migratórias, hoje discutimos moda para cetáceos.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST 3 (NOVO) -->
+      <article class="post-card">
+        <div class="post-header-wrapper">
+          <div class="votes">
+            <button class="vote-btn">▲</button>
+            <span>2.1k</span>
+            <button class="vote-btn">▼</button>
+          </div>
+          <div class="post-content">
+            <div class="post-meta">Postado por u/MestreDosSaltos há 14 horas</div>
+            <h2 class="post-title">DEBATE SÉRIO: Salto mortal triplo em tanque de 3 metros é genialidade técnica ou irresponsabilidade com o teto do aquário?</h2>
+            <p class="post-body">Meu golfinho "Tornado" aprendeu a dar três voltas completas no ar antes de cair de barriga. O problema é que o rabo dele tá batendo no teto de acrílico da piscina. Alguém tem dica de amortecedor de teto?</p>
+            <div class="post-footer">
+              <span class="btn-comments" onclick="toggleComentarios('c3')">💬 20 Comentários (Clique para expandir)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMENTÁRIOS POST 3 -->
+        <div class="comments-section" id="c3">
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/FisicoMarinho</span><span>▲ 142</span></div>
+            <div class="comment-body">A gravidade na borda do tanque é de 9.81m/s². Se ele bate no teto, significa que o empuxo de saída superou a força peso em 45%. Solução: diminua a comida antes do treino.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/ArquiteturaSubaquatica</span><span>▲ 88</span></div>
+            <div class="comment-body">Coloca placa de E.V.A no teto. Fica parecendo escolinha infantil, mas evita que o bicho tome um galo na cabeça.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/TeoricoDaMatriz</span><span>▲ 4</span></div>
+            <div class="comment-body">O teto é uma ilusão. Se o golfinho acreditar com força suficiente, ele atravessa o acrílico e vai voando até a estratosfera.</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/MestreDosSaltos (Autor)</span><span>▲ 30</span></div>
+            <div class="comment-body">Prefiro não arriscar mandar meu golfinho pro espaço, amigo. Ele ainda não tem capacete.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/ASCII_Art_King</span><span>▲ 51</span></div>
+            <div class="comment-body"><pre style="font-size:0.6rem; color:var(--accent-blue);">
+   .-""-.
+  /  _  \
+ |  (o)  |  <--- "GOLFINHO DO SALTO"
+  \  _  /
+   '-..-'
+            </pre>
+Arte que fiz em homenagem ao Tornado.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/AvaliadorDeAcidentes</span><span>▲ 19</span></div>
+            <div class="comment-body">Trabalho no seguro do parque aquático. Se esse teto quebrar, a apólice não cobre danos por "uso excessivo de piruetas". Cuidado.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/TornadoFanboy</span><span>▲ 95</span></div>
+            <div class="comment-body">Manda vídeo do salto!!! O Tornado é o maior atleta desta geração cetácea!</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/AnalistaDeCodigos</span><span>▲ 2</span></div>
+            <div class="comment-body">Gente, olhem os números dos Upvotes dos comentários: 142, 88, 4, 30, 51... se colocar na ordem hexadecimal dá a senha da conta de e-mail do meu tio!</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/TioDoAnalista</span><span>▲ 12</span></div>
+            <div class="comment-body">Apaga isso agora, Juninho! Falei pra você não mexer nas minhas coisas!</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/NadadorNoturno</span><span>▲ 7</span></div>
+            <div class="comment-body">Se ele der quatro voltas em vez de três, o momento angular cancela a subida e ele para no ar estilo Matrix. Alguém testa isso por favor.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/SardinhaEspecialista</span><span>▲ 18</span></div>
+            <div class="comment-body">Isso acontece porque a água do tanque tá com sal de menos. Quanto mais salina a água, mais o salto fica estético.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/ComplotistaAbissal</span><span>▲ 1</span></div>
+            <div class="comment-body">Os golfinhos estão tentando quebrar o teto porque sabem o que tem lá fora. Eles estão em contato com os submarinos de alta profundidade!</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/LimpadorDeFiltro</span><span>▲ 33</span></div>
+            <div class="comment-body">Só peço uma coisa: se o teto quebrar, limpem os cacos de vidro do fundo. Dá um trabalho desgraçado tirar vidro de filtro de areia.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/Biolocura</span><span>▲ 14</span></div>
+            <div class="comment-body">Três giros no ar é sinal de acasalamento na cultura dos cetáceos do Atlântico Norte. Ele não tá fazendo show, tá te cantando.</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/MestreDosSaltos (Autor)</span><span>▲ 110</span></div>
+            <div class="comment-body">Mano... o quê?! 😳</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/GeometriaSagrada</span><span>▲ 3</span></div>
+            <div class="comment-body">A trajetória do giro forma uma espiral de Fibonacci perfeita. Claramente uma manifestação do universo no adestramento.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/PinguimInfiltrado</span><span>▲ 27</span></div>
+            <div class="comment-body">Vocês adestradores de golfinho se acham muito né. Quer ver graça? Vem adestrar um pinguim com mau humor na Antártida.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/VendedorDeBolas</span><span>▲ 9</span></div>
+            <div class="comment-body">Aproveitando o espaço: Vendo lote com 50 bolas impermeáveis amarelas. Ótimo estado, leve cheiro de maresia. Chama no privado.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/JuizDeCirco</span><span>▲ 61</span></div>
+            <div class="comment-body">Nota 9.8 pro salto. Perdeu pontos porque a entrada na água espirrou no público da primeira fileira.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/UltimoAComentar</span><span>▲ 0</span></div>
+            <div class="comment-body">Se você leu até aqui, vá tomar um copo d'água. Hidrate-se como um cetáceo.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- POST 4 (NOVO) -->
+      <article class="post-card">
+        <div class="post-header-wrapper">
+          <div class="votes">
+            <button class="vote-btn">▲</button>
+            <span>3.5k</span>
+            <button class="vote-btn">▼</button>
+          </div>
+          <div class="post-content">
+            <div class="post-meta">Postado por u/RadioOceano há 1 dia</div>
+            <h2 class="post-title">Misterioso: Meu golfinho aprendeu a usar o sonar para imitar o som de INTERNET DISCADA de 1998?</h2>
+            <p class="post-body">Toda vez que aproximo meu rádio walkie-talkie da borda do tanque, ele emite uma frequência estridente que soa exatamente igual ao modem de 56kbps conectando na AOL. Isso é normal ou ele tá tentando se conectar com a rede mundial de computadores?</p>
+            <div class="post-footer">
+              <span class="btn-comments" onclick="toggleComentarios('c4')">💬 20 Comentários (Clique para expandir)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMENTÁRIOS POST 4 -->
+        <div class="comments-section" id="c4">
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/Nostalgia90</span><span>▲ 340</span></div>
+            <div class="comment-body">TUM---PRRRRRRRRRR-KRRRRRRRRRR-EEE-EEE-EEE-KZZZZZZZZ. Que saudade desse barulho! Seu golfinho é uma relíquia histórica.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/HackerDaAntiga</span><span>▲ 189</span></div>
+            <div class="comment-body">Se você gravar esse som e passar num programa de áudio Spectrum, vai ver a imagem de uma sardinha desenhada nas ondas sonoras. Tenho certeza!</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/DecodificadorPro</span><span>▲ 12</span></div>
+            <div class="comment-body">Tentei converter o som pra código binário: 01000001 01000111 01010101 01000001. Significa "AGUA" em ASCII! Pera aí... será?!</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/RadioOceano (Autor)</span><span>▲ 45</span></div>
+            <div class="comment-body">Mano, ele mora numa piscina. É óbvio que ele vai falar "água" KKKKKKKK.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/EngenheiroDeSom</span><span>▲ 77</span></div>
+            <div class="comment-body">Isso acontece porque a modulação de frequência dos cliques de ecolocalização deles oscila exatamente entre 14.400Hz e 56.000Hz. É uma coincidência biológica pura.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/UfologoSubaquatico</span><span>▲ 3</span></div>
+            <div class="comment-body">Eles não estão imitando a internet. A internet que foi criada copiada do sistema de comunicação telepática dos cetáceos aliens de Sirius B! A verdade está lá fora (ou lá embaixo)!</div>
+          </div>
+          <div class="comment comment-nested">
+            <div class="comment-meta"><span class="comment-author">u/SkepticalBoy</span><span>▲ 82</span></div>
+            <div class="comment-body">Todo post tem que ter um maluco dos OVNIs né mano. Impressionante.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/CyberCetaceo</span><span>▲ 29</span></div>
+            <div class="comment-body">Daqui a pouco ele tá minerando Bitcoin no aquário gastando toda a energia do parque aquático.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/OperadorDeTelemarketing</span><span>▲ 15</span></div>
+            <div class="comment-body">Aproveita e pede pra ele ligar pro meu chefe e pedir demissão por mim com esse som de erro de linha.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/MusicoExperimental</span><span>▲ 41</span></div>
+            <div class="comment-body">Gravei esse som e fiz um remix de Synthwave Abissal. Ficou absurdo! Procurem "Dolphin Dial-up Experience" no Spotify.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/BiologoCético</span><span>▲ 63</span></div>
+            <div class="comment-body">Gente, os golfinhos apenas imitam o som de ruídos eletromagnéticos de aparelhos que ficam perto do vidro. Cuidado com walkie-talkies baratos perto do ecossistema.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/GamerAntigo</span><span>▲ 8</span></div>
+            <div class="comment-body">Ele tá tentando baixar a rom de Ecco the Dolphin do Sega Genesis! Certeza absoluta!</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/TreinadorDeAnos2000</span><span>▲ 22</span></div>
+            <div class="comment-body">Coloca um cabo de rede rj45 na água pra ver se a luz do roteador pisca kkkkkkkkk.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/DetetiveVirtual</span><span>▲ 1</span></div>
+            <div class="comment-body">Se você pegar o nome do usuário 'RadioOceano', inverter as letras e tirar os 'o', fica 'naecOoidaR'. Não significa nada, só queria avisar mesmo.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/PaiDeGolfinhoAgressivo</span><span>▲ 31</span></div>
+            <div class="comment-body">O meu só imita o som da batedeira de bolo quando tô tentando cozinhar. É insuportável de tão alto.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/MorfadorDeSons</span><span>▲ 10</span></div>
+            <div class="comment-body">Sons entre 10kHz e 20kHz causam interferência no sonar. Se o seu rádio for VHF, mude pro canal 16 pra não irritar os ouvidos do bicho.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/ConspiracaoSardinha</span><span>▲ 4</span></div>
+            <div class="comment-body">Eles estão fazendo download do mapa de fuga do parque! Fiquem atentos às portas dos tanques hoje à noite!</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/VendedorDeEletronicos</span><span>▲ 6</span></div>
+            <div class="comment-body">Temos Walkie-Talkies blindados subaquáticos com isolamento de sonar em promoção! Acesse nosso perfil.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/ModeradorFishit</span><span>▲ 150</span></div>
+            <div class="comment-body"><strong>[MODERAÇÃO]</strong> Lembrem-se das regras da comunidade: É proibido compartilhar links para download de firmware de golfinho não oficial. Mantenham o debate civilizado.</div>
+          </div>
+          <div class="comment">
+            <div class="comment-meta"><span class="comment-author">u/UsuarioComum</span><span>▲ 17</span></div>
+            <div class="comment-body">Esse sub-reddit é de longe a melhor coisa da internet brasileira KKKKKKKKKKK.</div>
+          </div>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- SIDEBAR DA COMUNIDADE -->
+    <aside class="sidebar" id="sidebar-container">
+      <h3>Sobre a Comunidade</h3>
+      <p>Espaço dedicado a adestradores, biólogos e entusiastas da arte circense cetácea. Compartilhe dicas de malabarismo aquático, hidroginástica avançada e truques com peixes.</p>
+      <div style="font-size:0.8rem; color:var(--text-muted);">
+        <div>Membros: <strong>48.2k</strong></div>
+        <div>Online nas profundezas: <strong>1.3k</strong></div>
+      </div>
+    </aside>
+
+    <!-- ÁREA DE RASCUNHOS / PERFIL -->
+    <section class="drafts-view" id="drafts-container">
+      <div class="drafts-header">
+        <h2>Seus Rascunhos Salvos (3)</h2>
+        <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.3rem;">Posts não publicados no Fishit</p>
+      </div>
+
+      <!-- RASCUNHO BAZÓFIA 1 -->
+      <div class="draft-item">
+        <span class="draft-tag">RASCUNHO - NÃO POSTADO</span>
+        <div class="draft-title">Nota mental: Comprar 80kg de sardinha em promoção</div>
+        <div class="draft-body">Não esquecer de pedir desconto no atacado do porto. O Flipper tá comendo mais do que um leão marinho em festa de aniversário.</div>
+      </div>
+
+      <!-- RASCUNHO BAZÓFIA 2 (ARGOLAS DE FOGO) -->
+      <div class="draft-item">
+        <span class="draft-tag">RASCUNHO - NÃO POSTADO</span>
+        <div class="draft-title">Ideia de post: Golfinhos conseguem fazer malabarismo com argolas em chamas?</div>
+        <div class="draft-body">Testei ontem. A água apagou o fogo. Sou um idiota. Deixar baixo.</div>
+      </div>
+
+      <!-- RASCUNHO -->
+      <div class="draft-item" style="border-color: var(--accent-orange);">
+        <span class="draft-tag" style="background:var(--accent-orange); color:#fff;">RASCUNHO #04</span>
+        <div class="draft-title">Poema do Abismo</div>
+        <div class="draft-body"> No círculo sagrado onde as sombras vão girar,
+O orgulho daquele que arranha-céus faz até a morte estremecer.
+Para alinhar o abismo e a verdade revelar,
+meio vezes quarenta e oito passos hão de conceder:
+
+Tombou seis de seus alicerces sem temer,
+A Torre rachou e o Louco assumiu o seu lugar;
+A Morte renasceu, do cadáver a apodrecer.
+
+As esfinges ditaram "cinco países para atravessar"
+O Carro cedeu o espaço para o anjo passar;
+E a Roda apostou, o destino vai girar.
+
+Seis voltas a terra deu ao seu redor a invocar,
+O Mago que despertou com seu brilho de luar;
+E a Torre rachada, teve seu raio para queimar.
+
+Duas mãos, duas correntes, dois chifres a enfrentar,
+Duas Espadas se cruzam na tua peleja moral;
+E no oitavo giro o mundo parou de se importar, no final.
+        </div>
+      </div>
+    </section>
+
+  </div>
+<script>
+   function toggleComentarios(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('open');
+    }
+
+    function verRascunhos() {
+      document.getElementById('feed-container').style.display = 'none';
+      document.getElementById('sidebar-container').style.display = 'none';
+      document.getElementById('drafts-container').style.display = 'block';
+      
+      document.getElementById('btn-feed').classList.remove('active');
+      document.getElementById('btn-rascunhos').classList.add('active');
+    }
+
+    function verFeed() {
+      document.getElementById('feed-container').style.display = 'flex';
+      document.getElementById('sidebar-container').style.display = 'block';
+      document.getElementById('drafts-container').style.display = 'none';
+
+      document.getElementById('btn-feed').classList.add('active');
+      document.getElementById('btn-rascunhos').classList.remove('active');
+    }
+</script>
+</body>
+</html>

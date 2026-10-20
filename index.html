@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div id="tela-log" class="container">
+        <p id="texto-log">Iniciando o sistema...</p>
+        <button class="botao-terminal" id="btn-codigo" style="display:none;">[ERRO CRÍTICO: ACESSAR CÓDIGO DO SISTEMA]</button>
+    </div>
+
+    <div class="container" id="tela-codigo" style="display: none;">
+        <h3>//MÓDULO DE REPARO DE EMERGÊNCIA</h3>
+        <P>A linha 42 contém um erro de sintaxe. Corrija para liberar o arquivo de boot</P>
+        <textarea id="editor-fake" rows="5">
+            <system>
+                <status>CORROMPIDO</status>
+                <boot_file>BLOQUEADO</boot_file>
+            </system>
+        </textarea>
+
+        <br>
+        <button id="btn-consertar" class="botao-terminal">COMPILAR E RODAR</button>
+
+        <a href="os.html" id="link-os" style="display: none;">[INICIAR_OS.EXE]</a>
+    </div>
+</body>
+<script>
+    const telaLog = document.getElementById('tela-log');
+    const textoLog = document.getElementById('texto-log');
+    const btnCodigo = document.getElementById('btn-codigo');
+
+    const telaCodigo = document.getElementById('tela-codigo');
+    const editorFake = document.getElementById('editor-fake');
+    const btnConsertar = document.getElementById('btn-consertar');
+    const linkOs = document.getElementById('link-os');
+
+    const mensagensLog = [
+        "Iniciando sistema de recuperação...",
+        "Buscando dispositivo host: [PocketVerse_A.L.M.A]",
+        "Conexão estabelecida. Lendo histórico de eventos...",
+        "Uso estável  12.03.16",
+        "AVISO: Pico de estresse emocional detectado.",
+        "Buscando fragmentos de memória do Core.0_2...",
+        "Uso estável  12.04.18",
+        "ERRO: Ego falho, simulação pesada.",
+        "Trocando ego...",
+        "Uso estável  12.05.19",
+        "AVISO: Queda de pressão brusca.",
+        "Tentando reconexão...",
+        "FATAL ERROR",
+        "Redirecionando para sistema OS recuperado...",
+        "FALHA CRÍTICA DE SINCRONIZAÇÃO. SISTEMA TRAVADO."
+    ];
+
+let linhaAtual = 0;
+let letraAtual = 0;
+
+textoLog.innerHTML = "";
+function digitarLog() {
+    if(linhaAtual<mensagensLog.length){
+        
+        if(letraAtual < mensagensLog[linhaAtual].length) {
+                textoLog.innerHTML += mensagensLog[linhaAtual].charAt(letraAtual);
+                 letraAtual++;
+                setTimeout(digitarLog, 30);
+        }else {
+                textoLog.innerHTML += "<br><br>"
+                linhaAtual++;
+                letraAtual = 0;
+                setTimeout(digitarLog, 600);
+        }
+
+    }else{
+            btnCodigo.style.display = "block";
+    }
+}
+
+digitarLog();
+
+btnCodigo.addEventListener('click', function(){
+    telaLog.style.display = "none";
+    telaCodigo.style.display = "block";
+});
+
+btnConsertar.addEventListener('click', function(){
+    let codigoDigitado = editorFake.value;
+    let codigoMaiusculo = codigoDigitado.toUpperCase();
+
+    if (codigoMaiusculo.includes("LIBERADO")) {
+        linkOs.style.display = "block";
+        btnConsertar.innerText = "SISTEMA RESTAURADO";
+        btnConsertar.style.backgroundColor = "#00ffff";
+        btnConsertar.style.color = "#000";
+        btnConsertar.disabled = true;
+    }else{
+        alert("FALHA DE COMPILAÇÃO: O arquivo de boot ainda não foi liberado. Verifique os status.");
+    }
+});
+
+    
+</script>
+</html>

@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário</title>
+    <link rel="stylesheet" href="/styles/quimica.css">
+</head>
+<body>
+    <canvas id="canvas-bolhas"></canvas>
+    <div id="radar-cursor"></div>
+    <!-- 3 BLOCOS DE FUNDO PARA SEUS DESENHOS -->
+  <div class="bg-block" id="bg-block-1"><img src="/assets/camarao.png" alt=""></div>
+  <div class="bg-block" id="bg-block-2"><img src="/assets/manatee.png" alt=""></div>
+  <div class="bg-block" id="bg-block-3"><img src="/assets/tutuga.png" alt=""></div>
+
+  <div class="quiz-container">
+    <header>
+      <h1>🧪 Questionário de Química Teórica</h1>
+      <div class="progress-bar" id="progress-indicator">Pergunta 1 de 8</div>
+    </header>
+
+    <form id="quiz-form" onsubmit="return false;">
+
+      <!-- QUESTÃO 1 -->
+      <div class="question-card" id="card-q1">
+        <p class="question-title">1. Qual o nome do grupo funcional que caracteriza a função orgânica dos álcoois?</p>
+        <ul class="options-list">
+          <label class="option-item"><input type="radio" name="q1" value="A"> A) Carbonila</label>
+          <label class="option-item"><input type="radio" name="q1" value="B"> B) Hidroxila</label>
+          <label class="option-item"><input type="radio" name="q1" value="C"> C) Carboxila</label>
+          <label class="option-item"><input type="radio" name="q1" value="D"> D) Amina</label>
+        </ul>
+        <button type="button" class="btn-action" onclick="validarEtapa(1)">Responder e Avançar ➔</button>
+      </div>
+
+      <!-- QUESTÃO 2 -->
+      <div class="question-card hidden" id="card-q2">
+        <p class="question-title">2. Como é classificada uma cadeia carbônica que apresenta apenas ligações simples entre os átomos de carbono?</p>
+        <ul class="options-list">
+          <label class="option-item"><input type="radio" name="q2" value="A"> A) Insaturada</label>
+          <label class="option-item"><input type="radio" name="q2" value="B"> B) Aromática</label>
+          <label class="option-item"><input type="radio" name="q2" value="C"> C) Saturada</label>
+          <label class="option-item"><input type="radio" name="q2" value="D"> D) Insaturada homogênea</label>
+        </ul>
+        <button type="button" class="btn-action" onclick="validarEtapa(2)">Responder e Avançar ➔</button>
+      </div>
+
+      <!-- QUESTÃO 3 -->
+      <div class="question-card hidden" id="card-q3">
+        <p class="question-title">3. A passagem direta de uma substância do estado sólido para o estado gasoso, sem passar pelo estado líquido, é chamada de:</p>
+        <ul class="options-list">
+          <label class="option-item"><input type="radio" name="q3" value="A"> A) Fusão</label>
+          <label class="option-item"><input type="radio" name="q3" value="B"> B) Condensação</label>
+          <label class="option-item"><input type="radio" name="q3" value="C"> C) Evaporação</label>
+          <label class="option-item"><input type="radio" name="q3" value="D"> D) Sublimação</label>
+        </ul>
+        <button type="button" class="btn-action" onclick="validarEtapa(3)">Responder e Avançar ➔</button>
+      </div>
+
+      <!-- QUESTÃO 4 -->
+      <div class="question-card hidden" id="card-q4">
+        <p class="question-title">4. Qual biomolécula representa a principal fonte primária e rápida de energia para os seres vivos?</p>
+        <ul class="options-list">
+          <label class="option-item"><input type="radio" name="q4" value="A"> A) Proteínas</label>
+          <label class="option-item"><input type="radio" name="q4" value="B"> B) Carboidratos</label>
+          <label class="option-item"><input type="radio" name="q4" value="C"> C) Lipídios</label>
+          <label class="option-item"><input type="radio" name="q4" value="D"> D) Ácidos Nucleicos</label>
+        </ul>
+        <button type="button" class="btn-action" onclick="validarEtapa(4)">Responder e Avançar ➔</button>
+      </div>
+
+      <!-- QUESTÃO 5 -->
+      <div class="question-card hidden" id="card-q5">
+        <p class="question-title">5. O petróleo é uma mistura complexa formada predominantemente por qual classe de compostos orgânicos?</p>
+        <ul class="options-list">
+          <label class="option-item"><input type="radio" name="q5" value="A"> A) Hidrocarbonetos</label>
+          <label class="option-item"><input type="radio" name="q5" value="B"> B) Ésteres</label>
+          <label class="option-item"><input type="radio" name="q5" value="C"> C) Fenóis</label>
+          <label class="option-item"><input type="radio" name="q5" value="D"> D) Aldeídos</label>
+        </ul>
+        <button type="button" class="btn-action" onclick="validarEtapa(5)">Responder e Avançar ➔</button>
+      </div>
+
+      <!-- QUESTÃO 6 -->
+      <div class="question-card hidden" id="card-q6">
+        <p class="question-title">6. As proteínas são macromoléculas biológicas formadas pela união de unidades menores denominadas:</p>
+        <ul class="options-list">
+          <label class="option-item"><input type="radio" name="q6" value="A"> A) Nucleotídeos</label>
+          <label class="option-item"><input type="radio" name="q6" value="B"> B) Monossacarídeos</label>
+          <label class="option-item"><input type="radio" name="q6" value="C"> C) Aminoácidos</label>
+          <label class="option-item"><input type="radio" name="q6" value="D"> D) Ácidos graxos</label>
+        </ul>
+        <button type="button" class="btn-action" onclick="validarEtapa(6)">Responder e Avançar ➔</button>
+      </div>
+
+      <!-- QUESTÃO 7 -->
+      <div class="question-card hidden" id="card-q7">
+        <p class="question-title">7. A ligação química caracterizada pela transferência definitiva de elétrons entre um metal e um não-metal é a:</p>
+        <ul class="options-list">
+          <label class="option-item"><input type="radio" name="q7" value="A"> A) Covalente simples</label>
+          <label class="option-item"><input type="radio" name="q7" value="B"> B) Iônica</label>
+          <label class="option-item"><input type="radio" name="q7" value="C"> C) Metálica</label>
+          <label class="option-item"><input type="radio" name="q7" value="D"> D) Covalente dativa</label>
+        </ul>
+        <button type="button" class="btn-action" onclick="validarEtapa(7)">Responder e Avançar ➔</button>
+      </div>
+
+      <!-- QUESTÃO 8 -->
+      <div class="question-card encrypted-card hidden" id="card-q8">
+        <span class="encrypted-badge"></span>
+        <p class="question-title">
+          8. RVBM F B GPSNVMB NPMFDVMBS EB BHVB? SFTQPOEB DPNP MIF GPJ QFSHVOUBEP
+        </p>
+        <ul class="options-list">
+          <label class="option-item"><input type="radio" name="q8" value="A"> A) VN BUPNP EF DBSBPOP F EPJT EF PYJGFNJP </label>
+          <label class="option-item"><input type="radio" name="q8" value="B"> B) EPJT BUPNPT EF IJESPGFNJP F VN EF PYJGFNJP </label>
+          <label class="option-item"><input type="radio" name="q8" value="C"> C) VN BUPNP EF TPEJP F VN EF DMPSP </label>
+          <label class="option-item"><input type="radio" name="q8" value="D"> D) VN BUPNP EF DBSBPOP F RVBUSP EF IJESPGFNJP </label>
+        </ul>
+        <button type="button" class="btn-action" style="background:#a855f7;" onclick="validarEtapa(8)">Finalizar Questionário 🏆</button>
+      </div>
+
+      <!-- CARD DE SUCESSO (FINALIZOU TUDO) -->
+      <div class="question-card success-card hidden" id="card-success">
+        <h2>🎉 PARABÉNS!</h2>
+        <p>Você provou ser um nerd de primeira categoria! Podes acessar o reino dos nerds</p>
+        <button type="button" class="btn-action" onclick="reiniciarQuiz()"><a href="/peixes/forum.html"> CLIQUE AQUI!</a></button>
+      </div>
+
+    </form>
+  </div>
+
+<script>
+    const totalQuestoes = 8;
+
+    // Gabarito oficial de cada pergunta
+    const gabarito = {
+      q1: 'B',
+      q2: 'C',
+      q3: 'D',
+      q4: 'B',
+      q5: 'A',
+      q6: 'C',
+      q7: 'B',
+      q8: 'C' // Altere para a resposta certa da Cifra de César depois
+    };
+
+    function validarEtapa(numeroQuestao) {
+      const opcaoSelecionada = document.querySelector(`input[name="q${numeroQuestao}"]:checked`);
+
+      // Se a pessoa não marcou nenhuma opção
+      if (!opcaoSelecionada) {
+        alert("⚠️ Escolha uma alternativa antes de continuar!");
+        return;
+      }
+
+      // Verifica se acertou a questão atual
+      if (opcaoSelecionada.value === gabarito[`q${numeroQuestao}`]) {
+        // ACERTOU!
+        esconderCard(`card-q${numeroQuestao}`);
+
+        if (numeroQuestao < totalQuestoes) {
+          // Avança para a próxima pergunta
+          const proxima = numeroQuestao + 1;
+          mostrarCard(`card-q${proxima}`);
+          atualizarProgresso(`Pergunta ${proxima} de ${totalQuestoes}`);
+        } else {
+          // Concluiu a última questão (Q8)
+          mostrarCard('card-success');
+          atualizarProgresso('Questionário Concluído!');
+        }
+      } else {
+        // ERROU! Reinicia o questionário imediatamente
+        alert("❌ Resposta incorreta! Você errou e o questionário será REINICIADO do início!");
+        reiniciarQuiz();
+      }
+    }
+
+    function reiniciarQuiz() {
+      // 1. Limpa todas as marcações de radio button
+      document.getElementById('quiz-form').reset();
+
+      // 2. Esconde todas as perguntas
+      for (let i = 1; i <= totalQuestoes; i++) {
+        esconderCard(`card-q${i}`);
+      }
+      esconderCard('card-success');
+
+      // 3. Exibe a pergunta 1 novamente
+      mostrarCard('card-q1');
+      atualizarProgresso(`Pergunta 1 de ${totalQuestoes}`);
+    }
+
+    function esconderCard(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden');
+    }
+
+    function mostrarCard(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    }
+
+    function atualizarProgresso(texto) {
+      document.getElementById('progress-indicator').innerText = texto;
+    }
+
+    const canvas = document.getElementById('canvas-bolhas');
+const ctx = canvas.getContext('2d');
+
+let largura, altura, centroX, centroY;
+
+function redimensionar() {
+  largura = canvas.width = window.innerWidth;
+  altura = canvas.height = window.innerHeight;
+  centroX = largura / 2;
+  centroY = altura / 2;
+}
+
+window.addEventListener('resize', redimensionar);
+redimensionar();
+
+// Configuração das Bolhas
+const totalBolhas = 40; // Quantidade de bolhas simultâneas
+const bolhas = [];
+
+class Bolha {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    // Nasce exatamente no centro
+    this.x = centroX;
+    this.y = centroY;
+    
+    // Escolhe um ângulo aleatório (360 graus / todas as direções)
+    this.angulo = Math.random() * Math.PI * 2;
+    
+    // Velocidade de expansão
+    this.velocidade = Math.random() * 2 + 0.5;
+    
+    // Tamanho da bolha
+    this.raio = Math.random() * 4 + 5;
+    
+    // Opacidade inicial e transparência gradual
+    this.opacidade = Math.random() * 0.5 + 0.3;
+    this.taxaOpacidade = Math.random() * 0.003 + 0.001;
+  }
+
+  atualizar() {
+    // Move a bolha no ângulo sorteado (para os lados, diagonais, cima, baixo)
+    this.x += Math.cos(this.angulo) * this.velocidade;
+    this.y += Math.sin(this.angulo) * this.velocidade;
+
+    // Faz a bolha ir sumindo aos poucos conforme se afasta
+    this.opacidade -= this.taxaOpacidade;
+
+    // Se a bolha sumir totalmente ou sair da tela, renasce no centro
+    if (
+      this.opacidade <= 0 ||
+      this.x < 0 || this.x > largura ||
+      this.y < 0 || this.y > altura
+    ) {
+      this.reset();
+    }
+  }
+
+  desenhar() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.raio, 0, Math.PI * 2);
+    
+    // Estilo da bolha com contorno translúcido
+    ctx.fillStyle = `rgba(56, 189, 248, ${this.opacidade * 0.4})`; // Cor das bordas do gradiente
+    ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacidade})`;
+    ctx.lineWidth = 0.8;
+
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+  }
+}
+
+// Cria as bolhas iniciais
+for (let i = 0; i < totalBolhas; i++) {
+  bolhas.push(new Bolha());
+}
+
+// Loop de animação
+function animar() {
+  ctx.clearRect(0, 0, largura, altura);
+
+  bolhas.forEach(bolha => {
+    bolha.atualizar();
+    bolha.desenhar();
+  });
+
+  requestAnimationFrame(animar);
+}
+
+animar();
+
+// =========================================
+// 1. ANIMAÇÃO DO RADAR SEGUINDO O MOUSE
+// =========================================
+const radar = document.getElementById('radar-cursor');
+
+window.addEventListener('mousemove', (e) => {
+  radar.style.left = `${e.clientX}px`;
+  radar.style.top = `${e.clientY}px`;
+});
+
+
+// =========================================
+// 2. SISTEMA DE SOM DO SONAR (WEB AUDIO API)
+// Gerado via código, sem arquivos .mp3
+// =========================================
+let audioCtx;
+
+function tocarSomSonar() {
+  // 1. Instancia o contexto de áudio se ele não existir
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+
+  // 2. Destrava o contexto se o navegador tiver colocado em pausa
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+
+  const oscilador = audioCtx.createOscillator();
+  const ganho = audioCtx.createGain();
+
+  oscilador.type = 'sine';
+  oscilador.frequency.setValueAtTime(1500, audioCtx.currentTime);
+  oscilador.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.5);
+
+  // Volume configurado em 0.2 (audível e sem estourar o fone)
+  ganho.gain.setValueAtTime(0.2, audioCtx.currentTime);
+  ganho.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+
+  oscilador.connect(ganho);
+  ganho.connect(audioCtx.destination);
+
+  oscilador.start();
+  oscilador.stop(audioCtx.currentTime + 0.8);
+}
+
+// CHAVE MESTRA: O primeiro clique em QUALQUER LUGAR da tela destrava o motor de áudio do navegador
+document.addEventListener('click', () => {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+}, { once: true }); // Roda só uma vez para "despertar" o áudio
+
+// TESTE DIRETO: Clique em qualquer parte da tela para ouvir o sonar funcionar!
+document.addEventListener('click', tocarSomSonar);
+</script>
+</body>
+</html>
